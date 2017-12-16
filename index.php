@@ -27,7 +27,7 @@
     <?php
     $server = "tcp:techniondbcourse01.database.windows.net,1433";
     $user = "alonj";
-    $pass = "Db5891326";
+    $pass = "Aj5891326";
     $database = "alonj";
     $c = array("Database" => $database, "UID" => $user, "PWD" => $pass);
     sqlsrv_configure('WarningsReturnAsErrors', 0);
