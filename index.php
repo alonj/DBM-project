@@ -25,10 +25,10 @@
         </tr>
     </table>
     <?php
-    $server = "tcp:dbms2016s.database.windows.net,1433";
-    $user = "dbms2016s";
-    $pass = "Ilovedbms2016";
-    $database = "DBMS_classicmodels";
+    $server = "tcp:techniondbcourse01.database.windows.net,1433";
+    $user = "alonj@campus.technion.ac.il";
+    $pass = "Db5891326";
+    $database = "alonj";
     $c = array("Database" => $database, "UID" => $user, "PWD" => $pass);
     sqlsrv_configure('WarningsReturnAsErrors', 0);
     $conn = sqlsrv_connect($server, $c);
