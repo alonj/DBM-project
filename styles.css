@@ -4,3 +4,15 @@ table, th, td {
     padding: 10px;
     text-align: center;
 }
+
+img.title{
+    display: block;
+    max-width: 150px;
+    margin: auto;
+}
+
+p.quote{
+    font-style: italic;
+    font-family: David;
+    text-align: center;
+}
