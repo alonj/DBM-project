@@ -1,7 +1,7 @@
 <html>
 <body>
   <title>TED Stats Homepage - alonj</title>
-  <link href="styles.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href='@Url.content("~/styles.css")' type="text/css">
   <div class="topbanner">
       <img src="hw3/ted-logo-transparent.png" class="title">
       <img src="hw3/stats.png" class="title">
