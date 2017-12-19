@@ -2,12 +2,21 @@
 <body>
   <title>TED Stats Homepage - alonj</title>
   <link href="styles.css" rel="stylesheet" type="text/css">
-  <img src="hw3/ted-logo-transparent.png" class="title">
-  <img src="hw3/stats.png" class="title">
-  <p class="quote">Keep an eye on the popularity of TED talks, with an easy to use platform</p>
-  <a href="dataupload.php">Add lectures from file (.csv format)</a><br>
-  <a href="singlelec.php">Add lecture (singular form)</a>
-    <?php
+  <div class="topbanner">
+      <img src="hw3/ted-logo-transparent.png" class="title">
+      <img src="hw3/stats.png" class="title">
+      <p class="quote">Keep an eye on the popularity of TED talks, with an easy to use platform</p>
+  </div>
+  <div class="leftmenu">
+      <ul>
+          <li>Homepage<br></li>
+          <li><a href="dataupload.php">Add lectures from file (.csv format)</a><br></li>
+          <li><a href="singlelec.html">Add lecture (singular form)</a><br></li>
+      </ul>
+  </div>
+  <div class="rightmenu"></div>
+
+  <?php
     $server = "tcp:techniondbcourse01.database.windows.net,1433";
     $c = array("Database" => "alonj", "UID" => "alonj", "PWD" => "Qwerty12!");
     sqlsrv_configure('WarningsReturnAsErrors', 0);

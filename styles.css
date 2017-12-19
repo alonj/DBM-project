@@ -15,6 +15,43 @@ img.title{
 
 p.quote{
     font-style: italic;
+    font-weight: bold;
+    font-size: large;
+    color: darkred;
     font-family: David;
     text-align: center;
 }
+
+.leftmenu {
+    width: 20%;
+    border-right: 4px solid darkred;
+    height: 100%;
+    float: left;
+    background-color: gainsboro;
+}
+
+.rightmenu {
+    width: 20%;
+    border-left: 4px solid darkred;
+    height: 100%;
+    float: right;
+    background-color: gainsboro;
+}
+
+.topbanner {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    height: max-content;
+    border-bottom: 4px solid darkred;
+    background-color: gainsboro;
+}
+
+li {
+    padding-bottom: 20px;
+    padding-left: 10px;
+/*    font-style: oblique;*/
+    font-weight: bold;
+    font-family: Calibri;
+    font-size: large;
+}
+
