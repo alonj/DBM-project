@@ -10,15 +10,15 @@
       <img src='hw3/stats.png' class="title">
       <p class="quote">Keep an eye on the popularity of TED talks, with an easy to use platform</p>
   </div>
-  <div class="leftmenu">
+  <div class="left">
       <ul>
           <li>Homepage<br></li>
           <li><a href="dataupload.php">Add lectures from file (.csv format)</a><br></li>
           <li><a href="singlelec.php">Add lecture (singular form)</a><br></li>
       </ul>
   </div>
-  <div class="rightmenu"></div>
-
+  <div class="middle"></div>
+  <div class="right"></div>
   <?php
     $server = "tcp:techniondbcourse01.database.windows.net,1433";
     $c = array("Database" => "alonj", "UID" => "alonj", "PWD" => "Qwerty12!");

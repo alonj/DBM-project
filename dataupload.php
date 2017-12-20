@@ -10,22 +10,22 @@
     <img src="hw3/stats.png" class="title">
     <p class="quote">Keep an eye on the popularity of TED talks, with an easy to use platform</p>
 </div>
-<div class="leftmenu">
+<div class="left">
     <ul>
         <li><a href="index.php">Homepage</a><br></li>
         <li>Add lectures from file (.csv format)<br></li>
         <li><a href="singlelec.php">Add lecture (singular form)</a><br></li>
     </ul>
 </div>
-<div class="rightmenu"></div>
-<br><br>
-<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" enctype="multipart/form-data">
-    <p style="font-family: Calibri; font-size: large" align="center">Upload a file (.csv format)</p>
-    <div style="width: 10%; height: 100%; float: left">&nbsp;</div>
-    <input type="file" name="infile" id="infile"><br><br>
-    <input type="submit" name="submit" id="submit">
-</form>
-
+<div class="middle">
+    <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" enctype="multipart/form-data">
+        <p style="font-family: Calibri; font-size: large" align="center">Upload a file (.csv format)</p>
+        <div style="width: 10%; height: 100%; float: left">&nbsp;</div>
+        <input type="file" name="infile" id="infile"><br><br>
+        <input type="submit" name="submit" id="submit">
+    </form>
+</div>
+<div class="right"></div>
 <?php
 if (isset($_POST["submit"])){
     $server = "tcp:techniondbcourse01.database.windows.net,1433";

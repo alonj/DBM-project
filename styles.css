@@ -1,3 +1,7 @@
+body {
+    background-color: gainsboro;
+}
+
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -22,28 +26,33 @@ p.quote{
     text-align: center;
 }
 
-.leftmenu {
-    width: 20%;
-    border-right: 4px solid darkred;
-    height: 100%;
-    float: left;
-    background-color: gainsboro;
-}
-
-.rightmenu {
-    width: 20%;
-    border-left: 4px solid darkred;
-    height: 100%;
-    float: right;
-    background-color: gainsboro;
-}
-
 .topbanner {
     padding-top: 1%;
     padding-bottom: 1%;
     height: max-content;
     border-bottom: 4px solid darkred;
     background-color: gainsboro;
+}
+
+.left{
+    float: left;
+    border-right: 4px solid darkred;
+    width: 20%;
+    height: 100%;
+}
+
+.right {
+    float: left;
+    border-left: 4px solid darkred;
+    width: available;
+    height: 100%;
+}
+
+.middle {
+    background-color: white;
+    float: left;
+    width: 60%;
+    height: 100%;
 }
 
 li {
