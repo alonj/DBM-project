@@ -1,7 +1,6 @@
 <?php
 
 //Get form data from singlelec.html
-
 $name = htmlspecialchars($_POST['name']);
 $main_speaker = htmlspecialchars($_POST['main_speaker']);
 $description = htmlspecialchars($_POST['description']);

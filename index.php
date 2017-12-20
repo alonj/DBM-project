@@ -1,10 +1,10 @@
 <html>
 <body>
   <title>TED Stats Homepage - alonj</title>
-  <link rel="stylesheet" href='@Url.content("~/styles.css")' type="text/css">
+  <link rel="stylesheet" href='styles.css' type="text/css">
   <div class="topbanner">
-      <img src='@Url.content("~/hw3/ted-logo-transparent.png")' class="title">
-      <img src='@Url.content("~/hw3/stats.png")' class="title">
+      <img src='hw3/ted-logo-transparent.png' class="title">
+      <img src='hw3/stats.png' class="title">
       <p class="quote">Keep an eye on the popularity of TED talks, with an easy to use platform</p>
   </div>
   <div class="leftmenu">
