@@ -31,7 +31,7 @@
       $result = sqlsrv_query($conn, $sql);
       echo "<br><br>";
       echo "<table>";
-      echo "<th><td>Lecture Name</td><td>Score</td></th>";
+      echo "<tr><th>Lecture Name</th><th>Score</th></tr>";
       while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
       {
          echo "<tr><td>".$row['name'] . "</td><td>" . $row['score']."</td></tr>";
