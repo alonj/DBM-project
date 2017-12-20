@@ -1,5 +1,9 @@
-body {
+html, body {
     background-color: gainsboro;
+    height: 100%;
+    min-height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 table, th, td {
@@ -53,6 +57,8 @@ p.quote{
     float: left;
     width: 60%;
     height: 100%;
+    padding: 0px 0px 0px 0px;
+
 }
 
 li {

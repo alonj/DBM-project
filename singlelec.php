@@ -4,7 +4,7 @@
     <title>TED Stats - Add a single lecture</title>
 </head>
 <body>
-<link href="styles.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href='styles.css' type="text/css">
 <div class="topbanner">
     <img src="hw3/ted-logo-transparent.png" class="title">
     <img src="hw3/stats.png" class="title">
@@ -17,10 +17,11 @@
         <li>Add lecture (singular form)<br></li>
     </ul>
 </div>
-<div class="middle">
-    <div style="width: 10%; height: 100%; float: left">&nbsp;</div>
-    <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-        <p style="font-family: Calibri">
+<!--<div class="middle">-->
+
+    <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" style="width: 60%; background-color: white; float: left">
+        <div style="width: 10%; height: 90%; float: left">&nbsp;</div>
+        <p style="font-family: Calibri; height: 100%; padding-bottom: 0px">
             Lecture Name (*):<br>
             <input type="text" title="name" name="name" maxlength="5000" required autofocus><br><br>
             Main Speaker:<br>
@@ -46,18 +47,13 @@
             Current Number of Comments:<br>
             <input type="number" title="comments" name="comments"><br><br>
         </p>
-        <p align="center">
-            <input type="submit" value="Submit">
-            <input type="reset" value="Reset form"><br><br>
-            (*) - indicates required fields
+        <p align="center" style="font-family: Calibri; height: fit-content; background-color: white; padding-top: 0px">
+            <input type="submit" value="Submit" align="center">
+            <input type="reset" value="Reset form"> <br>
+        (*) - indicates required fields
         </p>
     </form>
-</div>
-
-<div class="right">
-</div>
 <?php
-
 //Get form data from singlelec.html
 $name = htmlspecialchars($_POST['name']);
 $main_speaker = htmlspecialchars($_POST['main_speaker']);
@@ -95,6 +91,7 @@ $sql = "INSERT INTO Ted(name,  main_speaker,  description,  event,  languages,  
                        '".$views."');";
 $result = sqlsrv_query($conn, $sql);
 ?>
-
+<!--</div>-->
+<div class="right"></div>
 </body>
 </html>
