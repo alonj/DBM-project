@@ -86,9 +86,9 @@ if (isset($_POST["submit"])) {
                            '" . $languages . "',
                            '" . $speaker_occupation . "',
                            '" . $url . "',
-                           '" . $duration . "',
-                           '" . $comments . "',
-                           '" . $views . "');";
+                           " . $duration . ",
+                           " . $comments . ",
+                           " . $views . ");";
     $result = sqlsrv_query($conn, $sql);
     sqlsrv_close($conn);
 }
