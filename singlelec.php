@@ -90,7 +90,13 @@ if (isset($_POST["submit"])) {
                            " . $comments . ",
                            " . $views . ");";
     $result = sqlsrv_query($conn, $sql);
-    sqlsrv_close($conn);
+    if(!$result){
+        die("Failure to update database!");
+        sqlsrv_close($conn);
+    }
+    else{
+        echo "Update succesful!";
+    }
 }
 ?>
 </body>
