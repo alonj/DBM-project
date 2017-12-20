@@ -37,7 +37,7 @@
       echo "<tr><th>Lecture Name</th><th>Popularity Score</th></tr>";
       while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
       {
-         echo "<tr><td><a href='" . $row[url] . "'>" . $row['name'] . "</a></td><td>" . ['score']."</td></tr>";
+         echo "<tr><td><a href='" . $row['url'] . "'>" . $row['name'] . "</a></td><td>" . $row['score']."</td></tr>";
       }
       echo "</table>";
     ?>
