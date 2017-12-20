@@ -55,3 +55,12 @@ li {
     font-size: large;
 }
 
+thead, tbody {
+    display: block;
+}
+
+tbody {
+    height: 500px;       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    /*overflow-x: hidden;*/  /* Hide the horizontal scroll */
+}
