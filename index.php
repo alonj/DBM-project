@@ -17,8 +17,7 @@
           <li><a href="singlelec.php">Add lecture (singular form)</a><br></li>
       </ul>
   </div>
-  <div class="middle"></div>
-  <div class="right"></div>
+
   <?php
     $server = "tcp:techniondbcourse01.database.windows.net,1433";
     $c = array("Database" => "alonj", "UID" => "alonj", "PWD" => "Qwerty12!");
@@ -41,5 +40,7 @@
       }
       echo "</table>";
     ?>
+  <div class="middle"></div>
+  <div class="right"></div>
   </body>
 </html>
