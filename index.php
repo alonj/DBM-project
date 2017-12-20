@@ -26,10 +26,10 @@
         echo "error";
         die(print_r(sqlsrv_errors(), true));
     }
-      $sql = "SELECT Ted.views, (Ted.comments * 10 + Ted.views * 0.1)/Ted.duration as score
+      $sql = "SELECT Ted.name, (Ted.comments * 10 + Ted.views * 0.1)/Ted.duration as score
               FROM Ted";
       $result = sqlsrv_query($conn, $sql);
-      sqlsrv_close($conn);
+      echo "<br><br>";
       echo "<table>";
       echo "<th><td>Lecture Name</td><td>Score</td></th>";
       while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
