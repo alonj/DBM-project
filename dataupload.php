@@ -55,6 +55,7 @@ if (isset($_POST["submit"])){
             sqlsrv_query($conn, $sql);
         }
         fclose($handle); } }
+        sqlsrv_close($conn);
 ?>
 
 </body>
