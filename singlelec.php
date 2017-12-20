@@ -20,8 +20,8 @@
 <!--<div class="middle">-->
 
     <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" style="width: 60%; background-color: white; float: left">
-        <div style="width: 10%; height: 90%; float: left">&nbsp;</div>
-        <p style="font-family: Calibri; height: 100%; padding-bottom: 0px">
+        <!--<div style="width: 10%; height: 90%; float: left">&nbsp;</div>-->
+        <p style="font-family: Calibri; height: 100%; padding-left: 15%; padding-top: 5%; overflow-y: auto">
             Lecture Name (*):<br>
             <input type="text" title="name" name="name" maxlength="5000" required autofocus><br><br>
             Main Speaker:<br>
