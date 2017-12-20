@@ -45,7 +45,7 @@
             Current Number of Views:<br>
             <input type="number" title="views" name="views"><br><br>
             Current Number of Comments:<br>
-            <input type="number" title="comments" name="comments"><br><br>
+            <input type="number" title="comments" name="comments">
         </p>
         <p align="center" style="font-family: Calibri; height: fit-content; background-color: white; padding-top: 0px">
             <input type="submit" value="Submit" align="center">
