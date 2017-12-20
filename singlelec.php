@@ -75,7 +75,7 @@ if($conn === false)
 }
 
 //Insert form data into "Ted" table
-$sql = "INSERT INTO Ted(main_speaker, name, description, event, languages, speaker_occupation, url, duration)
+$sql = "INSERT INTO Ted(name, main_speaker, description, event, languages, speaker_occupation, url, duration)
         VALUES($name, $main_speaker, $description, $event, $languages, $speaker_occupation, $url, $duration);";
 sqlsrv_query($conn, $sql);
 sqlsrv_close($conn);

@@ -40,17 +40,18 @@ if (isset($_POST["submit"])){
         $file = $_FILES[infile][tmp_name];
     if (($handle = fopen($file, "r")) !== FALSE) {
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-            $sql="INSERT INTO Ted(name, main_speaker, description, event, languages, speaker_occupation, url, duration, comments, views) VALUES
-            ('".addslashes($data[7])."',
-             '".addslashes($data[6])."',
-             '".addslashes($data[1])."',
-             '".addslashes($data[3])."',
-             '".addslashes($data[5])."',
-             '".addslashes($data[12])."',
-             '".addslashes($data[15])."',
-             '".addslashes($data[2])."',
-             '".addslashes($data[0])."',
-             '".addslashes($data[16])."'); ";
+            $sql="INSERT INTO Ted(name, main_speaker, description, event, languages, speaker_occupation, url, duration, comments, views) 
+            VALUES  ('".addslashes($data[7])."',
+                     '".addslashes($data[6])."',
+                     '".addslashes($data[1])."',
+                     '".addslashes($data[3])."',
+                     '".addslashes($data[5])."',
+                     '".addslashes($data[12])."',
+                     '".addslashes($data[15])."',
+                     '".addslashes($data[2])."',
+                     '".addslashes($data[0])."',
+                     '".addslashes($data[16])."'); 
+             ";
             sqlsrv_query($conn, $sql);
         }
         fclose($handle); } }
