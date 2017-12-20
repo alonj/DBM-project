@@ -1,6 +1,9 @@
 <html>
+<head>
+    <meta charset="utf-8" />
+    <title>TED Stats Homepage - alonj</title>
+</head>
 <body>
-  <title>TED Stats Homepage - alonj</title>
   <link rel="stylesheet" href='styles.css' type="text/css">
   <div class="topbanner">
       <img src='hw3/ted-logo-transparent.png' class="title">
@@ -11,7 +14,7 @@
       <ul>
           <li>Homepage<br></li>
           <li><a href="dataupload.php">Add lectures from file (.csv format)</a><br></li>
-          <li><a href="singlelec.html">Add lecture (singular form)</a><br></li>
+          <li><a href="singlelec.php">Add lecture (singular form)</a><br></li>
       </ul>
   </div>
   <div class="rightmenu"></div>
@@ -30,11 +33,11 @@
               FROM Ted";
       $result = sqlsrv_query($conn, $sql);
       echo "<br><br>";
-      echo "<table>";
-      echo "<tr><th>Lecture Name</th><th>Score</th></tr>";
+      echo "<table style='font-family: Calibri'>";
+      echo "<tr><th>Lecture Name</th><th>Popularity Score</th></tr>";
       while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
       {
-         echo "<tr><td>".$row['name'] . "</td><td>" . $row['score']."</td></tr>";
+         echo "<tr><td>".$row['name'] . "</td><td>" . ['score']."</td></tr>";
       }
       echo "</table>";
     ?>
