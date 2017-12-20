@@ -2,8 +2,8 @@ html, body {
     background-color: gainsboro;
     height: 100%;
     min-height: 100%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 table, th, td {
@@ -43,6 +43,7 @@ p.quote{
     border-right: 4px solid darkred;
     width: 20%;
     height: 100%;
+    min-height: 100%;
 }
 
 .right {
@@ -50,6 +51,7 @@ p.quote{
     border-left: 4px solid darkred;
     width: available;
     height: 100%;
+    min-height: 100%;
 }
 
 .middle {
@@ -57,7 +59,7 @@ p.quote{
     float: left;
     width: 60%;
     height: 100%;
-    padding: 0px 0px 0px 0px;
+    padding: 0 0 0 0;
 
 }
 
@@ -75,7 +77,6 @@ thead, tbody {
 }
 
 tbody {
-    height: 500px;       /* Just for the demo          */
-    overflow-y: auto;    /* Trigger vertical scroll    */
-    /*overflow-x: hidden;*/  /* Hide the horizontal scroll */
+    height: 500px;
+    overflow-y: auto;
 }

@@ -17,45 +17,45 @@
         <li>Add lecture (singular form)<br></li>
     </ul>
 </div>
-<!--<div class="middle">-->
-
-    <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" style="width: 60%; background-color: white; float: left">
-        <!--<div style="width: 10%; height: 90%; float: left">&nbsp;</div>-->
-        <p style="font-family: Calibri; height: 100%; padding-left: 15%; padding-top: 5%; overflow-y: auto">
-            Lecture Name (*):<br>
-            <input type="text" title="name" name="name" maxlength="5000" required autofocus><br><br>
-            Main Speaker:<br>
-            <input type="text" title="main_speakers" name="main_speaker" maxlength="5000"><br><br>
-            Description:<br>
-            <textarea name="description"
-                      placeholder="Add a short description of the lecture."
-                      style="word-wrap: break-word;
-                             min-height: 100px;
-                             min-width: 25%;"></textarea><br><br>
-            Event:<br>
-            <input type="text" title="event" name="event" maxlength="5000"><br><br>
-            Number of Languages:<br>
-            <input type="number" title="languages" name="languages" min="1" max="9999"><br><br>
-            Speaker Occupation:<br>
-            <input type="text" title="speaker occupation" name="speaker_occupation"><br><br>
-            URL:<br>
-            <input type="url" title="URL" name="url" maxlength="5000"><br><br>
-            Duration (in minutes):<br>
-            <input type="number" title="duration" name="duration" max="999" min="1"><br><br>
-            Current Number of Views:<br>
-            <input type="number" title="views" name="views"><br><br>
-            Current Number of Comments:<br>
-            <input type="number" title="comments" name="comments">
-        </p>
-        <p align="center" style="font-family: Calibri; height: fit-content; background-color: white; padding-top: 0px">
-            <input type="submit" value="Submit" align="center">
-            <input type="reset" value="Reset form"> <br>
-        (*) - indicates required fields
-        </p>
-    </form>
+<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" style="width: 60%; background-color: white; float: left; min-height: 100%">
+<!--    <p style="font-family: Calibri; width=100%; height: max-content; padding-left: 15%; padding-top: 5%; padding-bottom: 0">-->
+        <div style="float: left; padding-left: 20%; padding-top: 5%; font-family: Calibri">
+        Lecture Name (required):<br>
+        <input type="text" title="name" name="name" maxlength="5000" required autofocus><br><br>
+        Main Speaker:<br>
+        <input type="text" title="main_speakers" name="main_speaker" maxlength="5000"><br><br>
+        Description:<br>
+        <textarea name="description"
+                  placeholder="Add a short description of the lecture."
+                  style="word-wrap: break-word;
+                         min-height: 140px;
+                         min-width: 25%;"></textarea><br><br>
+        Event:<br>
+        <input type="text" title="event" name="event" maxlength="5000"><br><br>
+        </div>
+        <div style="float: right; padding-right: 20%; padding-top:5%; font-family: Calibri">
+        Number of Languages:<br>
+        <input type="number" title="languages" name="languages" min="1" max="9999"><br><br>
+        Speaker Occupation:<br>
+        <input type="text" title="speaker occupation" name="speaker_occupation"><br><br>
+        URL:<br>
+        <input type="url" title="URL" name="url" maxlength="5000"><br><br>
+        Duration (in minutes):<br>
+        <input type="number" title="duration" name="duration" max="999" min="1"><br><br>
+        Current Number of Views:<br>
+        <input type="number" title="views" name="views"><br><br>
+        Current Number of Comments:<br>
+        <input type="number" title="comments" name="comments"><br><br>
+        </div>
+        <div style="clear:both"></div>
+        <div style="padding-left: 40%; padding-top: 5%">
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset form"><br><br>
+        </div></p>
+</form>
+<div class="right"></div>
 <?php
 if (isset($_POST["submit"])) {
-    //Get form data from singlelec.html
     $name = htmlspecialchars($_POST['name']);
     $main_speaker = htmlspecialchars($_POST['main_speaker']);
     $description = htmlspecialchars($_POST['description']);
@@ -93,7 +93,5 @@ if (isset($_POST["submit"])) {
     sqlsrv_close($conn);
 }
 ?>
-<!--</div>-->
-<div class="right"></div>
 </body>
 </html>

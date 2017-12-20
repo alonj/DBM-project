@@ -20,9 +20,9 @@
 <div class="middle">
     <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" enctype="multipart/form-data">
         <p style="font-family: Calibri; font-size: large" align="center">Upload a file (.csv format)</p>
-        <div style="width: 10%; height: 100%; float: left">&nbsp;</div>
+        <div style="padding-left: 20%; height: 100%; float: left">
         <input type="file" name="infile" id="infile"><br><br>
-        <input type="submit" name="submit" id="submit">
+        <input type="submit" name="submit" id="submit"></div>
     </form>
 </div>
 <div class="right"></div>
