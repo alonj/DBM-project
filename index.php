@@ -39,7 +39,6 @@
          echo "<tr><td><a href='" . $row['url'] . "'>" . $row['name'] . "</a></td><td>" . $row['score']."</td></tr>";
       }
       echo "</table>";
-      sqlsrv_close($conn);
     ?>
   </div>
   <div class="right"></div>

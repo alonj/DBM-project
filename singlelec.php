@@ -55,6 +55,16 @@
 </form>
 <div class="right"></div>
 <?php
+//Connect to SQL server
+$server = "tcp:techniondbcourse01.database.windows.net,1433";
+$c = array("Database" => "alonj", "UID" => "alonj", "PWD" => "Qwerty12!");
+sqlsrv_configure('WarningsReturnAsErrors', 0);
+$conn = sqlsrv_connect($server, $c);
+if ($conn === false) {
+    echo "error";
+    die(print_r(sqlsrv_errors(), true));
+}
+
 if (isset($_POST["submit"])) {
     $name = htmlspecialchars($_POST['name']);
     $main_speaker = htmlspecialchars($_POST['main_speaker']);
@@ -67,16 +77,6 @@ if (isset($_POST["submit"])) {
     $comments = htmlspecialchars($_POST['comments']);
     $views = htmlspecialchars($_POST['views']);
 
-    //Connect to SQL server
-    $server = "tcp:techniondbcourse01.database.windows.net,1433";
-    $c = array("Database" => "alonj", "UID" => "alonj", "PWD" => "Qwerty12!");
-    sqlsrv_configure('WarningsReturnAsErrors', 0);
-    $conn = sqlsrv_connect($server, $c);
-    if ($conn === false) {
-        echo "error";
-        die(print_r(sqlsrv_errors(), true));
-    }
-
     //Insert form data into "Ted" table
     $sql = "INSERT INTO Ted(name,  main_speaker,  description,  event,  languages,  speaker_occupation,  url,  duration, comments, views)
                     VALUES('" . $name . "', 
@@ -86,9 +86,9 @@ if (isset($_POST["submit"])) {
                            '" . $languages . "',
                            '" . $speaker_occupation . "',
                            '" . $url . "',
-                           " . $duration . ",
-                           " . $comments . ",
-                           " . $views . ");";
+                            " . $duration . ",
+                            " . $comments . ",
+                            " . $views . ");";
     $result = sqlsrv_query($conn, $sql);
     if(!$result){
         die("Failure to update database!");
