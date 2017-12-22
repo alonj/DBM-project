@@ -92,10 +92,10 @@ if (isset($_POST["submit"])) {
     $result = sqlsrv_query($conn, $sql);
     if(!$result){
         die("Failure to update database!");
-        sqlsrv_close($conn);
     }
     else{
         echo "Update succesful!";
+
     }
 }
 ?>
