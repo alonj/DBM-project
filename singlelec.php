@@ -51,6 +51,7 @@
         <div style="padding-left: 40%; padding-top: 5%">
         <input type="submit" name="submit" value="Submit">
         <input type="reset" value="Reset form"><br><br>
+        <div style="clear:both"></div>
         </div></p>
 </form>
 <div class="right"></div>
@@ -94,8 +95,7 @@ if (isset($_POST["submit"])) {
         die("Failure to update database!");
     }
     else{
-        echo "Update succesful!";
-
+        echo "Update successful!";
     }
 }
 ?>
