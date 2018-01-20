@@ -14,7 +14,7 @@ if($conn === false)
     echo "error";
     die(print_r(sqlsrv_errors(), true));
 }
-  $sql = "SELECT *
+  $sql = "SELECT dID, name, hobby, address, d_birth
           FROM project.Driver";
   $result = sqlsrv_query($conn, $sql);
   echo "<br><br>";
@@ -28,9 +28,9 @@ if($conn === false)
         </tr>";
   while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
   {
-      echo "<tr><td>" . $row['dID'] . "</td>
-                <td>" . $row['name']."</td>
-                <td>" . $row['hobby']."</td>
+      echo "<tr><td>" . $row['dID'] .   "</td>
+                <td>" . $row['name'].   "</td>
+                <td>" . $row['hobby'].  "</td>
                 <td>" . $row['address']."</td>
                 <td>" . $row['d_birth']."</td>
             </tr>";
