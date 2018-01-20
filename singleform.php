@@ -41,9 +41,11 @@ if (isset($_POST["submit"])) {
     $address = htmlspecialchars($_POST['address']);
     $d_birth = htmlspecialchars($_POST['dob']);
     $hobby = htmlspecialchars($_POST['main_hobby']);
-    $check_unique = sqlsrv_query($conn,"SELECT dID
-                                            FROM project.Driver
-                                            WHERE dID=".$dID);
+    $dID_int = intval($dID);
+    $check_unique = "SELECT dID
+                     FROM project.Driver
+                     WHERE dID $dID_int";
+    $result = sqlsrv_query($conn, $check_unique);
     if(sqlsrv_num_rows($check_unique) === 0) { //Insert form data into "Driver" table if dID does not already exist
         $insert = "INSERT INTO project.Driver(dID,  name,  address,  d_birth,  hobby)
                         VALUES('" . $dID . "',  
