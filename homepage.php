@@ -19,7 +19,13 @@ if($conn === false)
   $result = sqlsrv_query($conn, $sql);
   echo "<br><br>";
   echo "<table style='font-family: Calibri'>";
-  echo "<tr><th>Lecture Name</th><th>Popularity Score</th></tr>";
+  echo "<tr>
+            <th>Driver ID</th>
+            <th>Name</th>
+            <th>Hobby</th>
+            <th>Address</th>
+            <th>Date of Birth</th>
+        </tr>";
   while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
   {
       echo "<tr><td>" . $row['dID'] . "</td>

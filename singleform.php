@@ -43,7 +43,7 @@ if (isset($_POST["submit"])) {
     $hobby = htmlspecialchars($_POST['main_hobby']);
     $check_unique = sqlsrv_query($conn,"SELECT dID
                                             FROM project.Driver
-                                            WHERE dID ='" . $dID . "'");
+                                            WHERE dID='" . $dID . "'");
     if(sqlsrv_num_rows($check_unique) === 0) { //Insert form data into "Driver" table if dID does not already exist
         $insert = "INSERT INTO project.Driver(dID,  name,  address,  d_birth,  hobby)
                         VALUES('" . $dID . "',  
