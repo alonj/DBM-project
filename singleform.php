@@ -39,8 +39,8 @@ if (isset($_POST["submit"])) {
     $dID = htmlspecialchars($_POST['dID']);
     $name = htmlspecialchars($_POST['name']);
     $address = htmlspecialchars($_POST['address']);
-    $d_birth = htmlspecialchars($_POST['dob']);
-    $hobby = htmlspecialchars($_POST['main_hobby']);
+    $d_birth = htmlspecialchars($_POST['d_birth']);
+    $hobby = htmlspecialchars($_POST['hobby']);
     $dID_int = intval($dID);
     $check_unique = "SELECT dID
                      FROM project.Driver
