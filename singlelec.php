@@ -57,8 +57,8 @@
 <div class="right"></div>
 <?php
 //Connect to SQL server
-$server = "tcp:techniondbcourse01.database.windows.net,1433";
-$c = array("Database" => "alonj", "UID" => "alonj", "PWD" => "Qwerty12!");
+$server = ;
+$c = array("Database" => , "UID" => , "PWD" => );
 sqlsrv_configure('WarningsReturnAsErrors', 0);
 $conn = sqlsrv_connect($server, $c);
 if ($conn === false) {
