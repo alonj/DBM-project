@@ -11,7 +11,9 @@ sqlsrv_configure('WarningsReturnAsErrors', 0);
 $conn = sqlsrv_connect($server, $c);
 if($conn === false)
 {
-    echo "error";
+    echo '<script language = "javascript">';
+    echo 'alert("Update failure!")';
+    echo '</script>';
     die(print_r(sqlsrv_errors(), true));
 }
   $sql = "SELECT dID, name, hobby, address, d_birth
