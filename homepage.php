@@ -14,7 +14,7 @@ if($conn === false)
     echo "error";
     die(print_r(sqlsrv_errors(), true));
 }
-  $sql = "SELECT dID, name, hobby, address, d_birth
+  $sql = "SELECT *
           FROM project.Driver";
   $result = sqlsrv_query($conn, $sql);
   echo "<br><br>";
