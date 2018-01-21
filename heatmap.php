@@ -67,20 +67,21 @@ if (isset($_POST["submit"])) {
     $latitude = floatval($_POST['latitude']);
     $longitude = floatval($_POST['longitude']);
     $radius = intval($_POST['radius']);
-    $create_view = "CREATE VIEW project.Heatmap
-                  AS SELECT COUNT(rID)
-                  FROM Project.RideP
-                  WHERE
-                  RideP.time BETWEEN(inputTime, DATEADD(hh,1,inputTime)) AND
-                  ACOS(SIN(inputLat*0.01745329252)*
-                  SIN(Ride.latitude*0.01745329252) +
-                  COS(inputLat*0.01745329252)*
-                  COS(Ride.latitude*0.01745329252)*
-                  COS(0.01745329252*(Ride.longitude-inputLon)))
-                  *6371 <= (inputRad/1000);";
-//    $query = ;
-
-
+    $create_view =   "CREATE OR REPLACE VIEW project.Heatmap AS
+                      SELECT COUNT(rID)
+                      FROM project.RideP
+                      WHERE (
+                      RideP.time BETWEEN('".$hour."', DATEADD(hh,1,'".$hour."')) AND
+                      ACOS(SIN('".$latitude."' *0.01745329252)*
+                      SIN(project.RideP.latitude*0.01745329252) +
+                      COS('".$latitude."'*0.01745329252)*
+                      COS(project.RideP.latitude*0.01745329252)*
+                      COS(0.01745329252*(project.RideP.longitude-'".$longitude."')))
+                      *6371 <= ('".$radius."'/1000)
+                      );";
+    $result = sqlsrv_query($conn, $sql);
+    $query = "SELECT * FROM project.Heatmap";
+    echo $query;
 }
 ?>
 </body>
