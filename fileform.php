@@ -45,7 +45,11 @@ if (isset($_POST["submit"])){
              ";
             sqlsrv_query($conn, $sql);
         }
-        fclose($handle); } }
+        fclose($handle);
+        echo '<script language = "javascript">';
+        echo 'alert("Upload successful!")';
+        echo '</script>';
+    } }
 ?>
 </body>
 </html>
