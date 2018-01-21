@@ -16,25 +16,25 @@ if($conn === false)
     echo '</script>';
     die(print_r(sqlsrv_errors(), true));
 }
-  $sql = "SELECT dID, name, hobby, address, d_birth
-          FROM project.Driver";
+  $sql = "SELECT rID, time, latitude, longitude, base
+          FROM project.RideP";
   $result = sqlsrv_query($conn, $sql);
   echo "<br><br>";
   echo "<table style='font-family: Calibri'>";
   echo "<tr>
-            <th>Driver ID</th>
-            <th>Name</th>
-            <th>Hobby</th>
-            <th>Address</th>
-            <th>Date of Birth</th>
+            <th>Ride index</th>
+            <th>Time recorded</th>
+            <th>latitude</th>
+            <th>longitude</th>
+            <th>Base</th>
         </tr>";
   while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
   {
-      echo "<tr><td>" . $row['dID'] .   "</td>
-                <td>" . $row['name'].   "</td>
-                <td>" . $row['hobby'].  "</td>
-                <td>" . $row['address']."</td>
-                <td>" . $row['d_birth']."</td>
+      echo "<tr><td>" . $row['rID'] .   "</td>
+                <td>" . $row['time'].   "</td>
+                <td>" . $row['latitude'].  "</td>
+                <td>" . $row['longitude']."</td>
+                <td>" . $row['base']."</td>
             </tr>";
   }
   echo "</table>";
