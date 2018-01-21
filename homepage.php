@@ -12,11 +12,11 @@ $conn = sqlsrv_connect($server, $c);
 if($conn === false)
 {
     echo '<script language = "javascript">';
-    echo 'alert("Update failure!")';
+    echo 'alert("Connection to database failed!")';
     echo '</script>';
     die(print_r(sqlsrv_errors(), true));
 }
-  $sql = "SELECT rID, time, latitude, longitude, base
+  $sql = "SELECT project.RideP.rID, project.RideP.time, project.RideP.latitude, project.RideP.longitude, project.RideP.base
           FROM project.RideP";
   $result = sqlsrv_query($conn, $sql);
   echo "<br><br>";
