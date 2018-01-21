@@ -22,11 +22,10 @@ img.title{
 }
 
 p.quote{
-    font-style: italic;
     font-weight: bold;
-    font-size: large;
-    color: darkred;
-    font-family: David;
+    font-size: 22px;
+    color: whitesmoke;
+    font-family: "D Sari Bold", Calibri, sans-serif;
     text-align: center;
 }
 
@@ -34,13 +33,13 @@ p.quote{
     padding-top: 1%;
     padding-bottom: 1%;
     height: max-content;
-    border-bottom: 4px solid darkred;
-    background-color: gainsboro;
+    border-bottom: 4px solid gold;
+    background-color: #0B5584;
 }
 
 .left{
     float: left;
-    border-right: 4px solid darkred;
+    border-right: 4px solid gold;
     width: 20%;
     height: 100%;
     min-height: 100%;
@@ -48,7 +47,7 @@ p.quote{
 
 .right {
     float: left;
-    border-left: 4px solid darkred;
+    border-left: 4px solid gold;
     width: available;
     height: 100%;
     min-height: 100%;
@@ -68,8 +67,8 @@ li {
     padding-left: 10px;
 /*    font-style: oblique;*/
     font-weight: bold;
-    font-family: Calibri;
-    font-size: large;
+    font-family: "D Sari Bold", Calibri, sans-serif;
+    font-size: 20px;
 }
 
 thead, tbody {

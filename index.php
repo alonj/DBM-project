@@ -6,8 +6,8 @@
 <body>
   <link rel="stylesheet" href='styles.css' type="text/css">
   <div class="topbanner">
-      <img src='hw3/ted-logo-transparent.png' class="title" alt="New York - Public Transportation Information"> <!--TODO add some nice header image-->
-      <p class="quote">Keep an eye on the popularity of TED talks, with an easy to use platform</p>
+      <img height="61px" width="100px" src="https://static-assets.ny.gov/sites/all/themes/ny_gov/images/logo_footer.png" class="title" alt="New York - Public Transportation Information">
+      <p class="quote">Public Transportation Information</p>
   </div>
   <div class="left">
       <ul>
