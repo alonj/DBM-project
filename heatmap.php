@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
-        #map {
-            height: 100%;
-        }
-    </style>
 </head>
 <body>
 <link rel="stylesheet" href='styles.css' type="text/css">
@@ -35,16 +26,24 @@
 
 <div id="map"></div>
 <script>
-    var map;
+/*    var map;
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: -34.397, lng: 150.644},
             zoom: 8
         });
-    }
+    }*/
+function myMap() {
+    var mapProp = {
+        center:new google.maps.LatLng(51.508742,-0.120850),
+        zoom:5
+    };
+    var map=new google.maps.Map(document.getElementById("map"),mapProp);
+}
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=initMap"
-        async defer></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>
+</body>
+</html>
 
 <?php
 /**
@@ -83,6 +82,3 @@ if (isset($_POST["submit"])) {
     $query = "SELECT * FROM project.Heatmap";
     echo $query;
 }
-?>
-</body>
-</html>

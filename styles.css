@@ -80,3 +80,7 @@ tbody {
     height: 500px;
     overflow-y: auto;
 }
+
+#map {
+    height: 100%;
+}
