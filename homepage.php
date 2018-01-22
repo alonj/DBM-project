@@ -22,7 +22,8 @@ if($conn === false)
     die(print_r(sqlsrv_errors(), true));
 }
   $sql = "SELECT project.RideP.rID, project.RideP.time, project.RideP.latitude, project.RideP.longitude, project.RideP.base
-          FROM project.RideP";
+          FROM project.RideP
+          WHERE project.RideP.base = 'B02617'";
   $result = sqlsrv_query($conn, $sql);
   echo "<br><br>";
   echo "<table style='font-family: Calibri'>";
