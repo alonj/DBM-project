@@ -26,21 +26,22 @@ if($conn === false)
   $result = sqlsrv_query($conn, $sql);
   echo "<br><br>";
   echo "<table style='font-family: Calibri'>";
-  echo "<tr>
-            <th>Ride index</th>
-            <th>Time recorded</th>
-            <th>latitude</th>
-            <th>longitude</th>
-            <th>Base</th>
-        </tr>";
+  echo "<tr>";
+  echo "<th>Ride index</th>";
+  echo "<th>Time recorded</th>";
+  echo "<th>latitude</th>";
+  echo "<th>longitude</th>";
+  echo "<th>Base</th>";
+  echo "</tr>";
   while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
   {
-      echo "<tr><td>" . $row['rID'] .   "</td>
-                <td>" . $row['time'].   "</td>
-                <td>" . $row['latitude'].  "</td>
-                <td>" . $row['longitude']."</td>
-                <td>" . $row['base']."</td>
-            </tr>";
+      echo "<tr>";
+      echo "<td>" . $row['rID'] .       "</td>";
+      echo "<td>" . $row['time'].       "</td>";
+      echo "<td>" . $row['latitude'].   "</td>";
+      echo "<td>" . $row['longitude'].  "</td>";
+      echo "<td>" . $row['base'].       "</td>";
+      echo"</tr>";
   }
   echo "</table>";
   ?>
