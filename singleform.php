@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
                                '" . $name . "',
                                '" . $address . "',
                                '" . $d_birth . "' ,
-                               '" . $hobby . "');";
+                               '" . $hobby . ");";
         $result = sqlsrv_query($conn, $sql);
         if (!$result) {
             echo '<script language = "javascript">';
