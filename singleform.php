@@ -41,21 +41,21 @@ if (isset($_POST["submit"])) {
     $address = htmlspecialchars($_POST['address']);
     $d_birth = htmlspecialchars($_POST['d_birth']);
     $hobby = htmlspecialchars($_POST['hobby']);
-    $dID_int = intval($dID);
+/*  $dID_int = intval($dID);
     $check_unique = "SELECT dID
-                     FROM project.Driver
-                     WHERE dID=".$dID_int;
-    $result = sqlsrv_query($conn, $check_unique);
+                        FROM project.Driver
+                        WHERE dID=".$dID_int;
+       $result = sqlsrv_query($conn, $check_unique);*/
     echo '<script language = "javascript">';
     echo 'alert("'.sqlsrv_num_rows($result).'")';
     echo '</script>';
     if(sqlsrv_num_rows($result) == 0) { //Insert form data into "Driver" table if dID does not already exist
         $insert = "INSERT INTO project.Driver(dID,  name,  address,  d_birth,  hobby)
-                        VALUES('" . $dID . "',  
+                        VALUES( " . $dID . ",  
                                '" . $name . "',
                                '" . $address . "',
-                               '" . $d_birth . "' ,
-                               '" . $hobby . ");";
+                                " . $d_birth . " ,
+                               '" . $hobby . "');";
         $result = sqlsrv_query($conn, $sql);
         if (!$result) {
             echo '<script language = "javascript">';
