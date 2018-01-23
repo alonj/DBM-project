@@ -47,18 +47,12 @@ if (isset($_POST["submit"])) {
                         WHERE dID=".$dID_int;
        $result = sqlsrv_query($conn, $check_unique);*/
     if(sqlsrv_num_rows($result) == 0) { //Insert form data into "Driver" table if dID does not already exist
-        /*$insert = "INSERT INTO project.Driver(dID,  name,  address,  d_birth,  hobby)
+        $insert = "INSERT INTO project.Driver(dID,  name,  address,  d_birth,  hobby)
                         VALUES( " . $dID . ",  
                                '" . $name . "',
                                '" . $address . "',
-                                " . $d_birth . " ,
-                               '" . $hobby . "');";*/
-        $insert = "INSERT INTO project.Driver(dID,  name,  address,  d_birth,  hobby)
-                        VALUES( 2 ,  
-                               'test',
-                               'test address',
-                                CONVERT(DATETIME2, '1991-12-02') ,
-                               'test')";
+                                CONVERT(DATETIME2,'" . $d_birth . "',21) ,
+                               '" . $hobby . "');";
         $result = sqlsrv_query($conn, $sql);
         if (!$result) {
             echo '<script language = "javascript">';
