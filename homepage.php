@@ -20,6 +20,9 @@
               FROM dbstudents.dbo.small_drive
               ";
         $result = sqlsrv_query($conn, $sql);
+        if( $result === false) {
+            die( print_r( sqlsrv_errors(), true) );
+        }
         $row_count = sqlsrv_num_rows($result);
         echo "number of rows:" . $row_count . "<br>";
         /*echo "<br><br>";
