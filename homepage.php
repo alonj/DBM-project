@@ -20,6 +20,8 @@
               FROM dbstudents.dbo.small_drive
               ";
         $result = sqlsrv_query($conn, $sql);
+        $row_count = sqlsrv_num_rows($result);
+        echo "number of rows:" . $row_count . "<br>";
         /*echo "<br><br>";
         echo "<table style='font-family: Calibri'>";
         echo "<tr>";
