@@ -17,14 +17,13 @@
             die(print_r(sqlsrv_errors(), true));
         }
         $sql = "SELECT car_id, Ctime
-              FROM dbstudents.dbo.small_drive
+              FROM small_drive
               ";
         $result = sqlsrv_query($conn, $sql);
         if( $result === false) {
             die( print_r( sqlsrv_errors(), true) );
         }
-//        $row_count = sqlsrv_num_rows($result);
-        $row_count = "test";
+        $row_count = sqlsrv_num_rows($result);
         echo "number of rows:" . $row_count . "<br>";
         /*echo "<br><br>";
         echo "<table style='font-family: Calibri'>";
