@@ -4,12 +4,6 @@
 </head>
 <body>
     <?php
-        /**
-         * Created by PhpStorm.
-         * User: alonj
-         * Date: 20-Jan-18
-         * Time: 15:51
-         */
         $server = "tcp:techniondbcourse01.database.windows.net,1433";
         $c = array("Database" => "dbstudents", "UID" => "dbstudents", "PWD" => "Qwerty12!");
         sqlsrv_configure('WarningsReturnAsErrors', 0);
@@ -21,7 +15,7 @@
             echo '</script>';
             die(print_r(sqlsrv_errors(), true));
         }
-        $sql = "SELECT dbstudents.dbo.small_drive.car_id, dbstudents.dbo.small_drive.Ctime
+        $sql = "SELECT car_id, Ctime
               FROM dbstudents.dbo.small_drive
               ";
         $result = sqlsrv_query($conn, $sql);
