@@ -28,7 +28,7 @@
 <?php
 //Connect to SQL server
 $server = "tcp:techniondbcourse01.database.windows.net,1433";
-$c = array("Database" => "alonj", "UID" => "alonj", "PWD" => "Qwerty12!");
+$c = array("Database" => "dbstudents", "UID" => "dbstudents", "PWD" => "Qwerty12!");
 sqlsrv_configure('WarningsReturnAsErrors', 0);
 $conn = sqlsrv_connect($server, $c);
 if ($conn === false) {
@@ -47,11 +47,11 @@ if (isset($_POST["submit"])) {
                         WHERE dID=".$dID_int;
        $result = sqlsrv_query($conn, $check_unique);*/
     if(sqlsrv_num_rows($result) == 0) { //Insert form data into "Driver" table if dID does not already exist
-        $insert = "INSERT INTO project.Driver(dID,  name,  address,  d_birth,  hobby)
+        $insert = "INSERT INTO dbstudents.dbo.driver(driver_id,  name,  date_of_birth,  address,  hobby)
                         VALUES( " . $dID . ",  
                                '" . $name . "',
-                               '" . $address . "',
                                 CONVERT(DATETIME2,'" . $d_birth . "',21) ,
+                               '" . $address . "',
                                '" . $hobby . "');";
         $result = sqlsrv_query($conn, $sql);
         if (!$result) {

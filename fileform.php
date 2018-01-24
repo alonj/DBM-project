@@ -16,7 +16,7 @@
 <?php
 if (isset($_POST["submit"])){
     $server = "tcp:techniondbcourse01.database.windows.net,1433";
-    $c = array("Database" => "alonj", "UID" => "alonj", "PWD" => "Qwerty12!");
+    $c = array("Database" => "dbstudents", "UID" => "dbstudents", "PWD" => "Qwerty12!");
     sqlsrv_configure('WarningsReturnAsErrors', 0);
     $conn = sqlsrv_connect($server, $c);
     if($conn === false)
@@ -36,13 +36,11 @@ if (isset($_POST["submit"])){
     }
     elseif (($handle = fopen($file, "r")) !== FALSE) {
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-            $sql="INSERT INTO project.RideP(rID, time, latitude, longitude, base) 
+            $sql="INSERT INTO dbstudents.dbo.small_drive(rID, location_lat, location_long) 
             VALUES  ('".addslashes($data[0])."',
-                     '".addslashes($data[1])."',
                      '".addslashes($data[2])."',
                      '".addslashes($data[3])."',
-                     '".addslashes($data[4])."'); 
-             ";
+                     '".addslashes($data[1])."');";
             sqlsrv_query($conn, $sql);
         }
         fclose($handle);
