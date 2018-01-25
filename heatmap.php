@@ -62,13 +62,49 @@ if (isset($_POST["submit"])) {
     echo 'alert("'. $heat .'");';
     echo '</script>';
 ?>
-<div id="map_div">
+
+
+    <div id="googleMap" class="gMap">
+        <script>
+            function myMap() {
+                var qLat =  <?php echo json_encode($latitude,JSON_NUMERIC_CHECK); ?>;
+                var qLng = <?php echo json_encode($longitude,JSON_NUMERIC_CHECK); ?>;
+                var qRadius = <?php echo json_encode($radius_km,JSON_NUMERIC_CHECK); ?>;
+                var qColor = <?php echo json_encode("#ff948e"); ?>;
+                var qPos = new google.maps.LatLng(qLat, qLng);
+                var mapProp = {
+                    center: qPos,
+                    zoom: 10
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                var qCircle = new google.maps.Circle({
+                    center: qPos,
+                    radius: qRadius,
+                    strokeColor: qColor,
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: qColor,
+                    fillOpacity: 0.4
+                });
+                qCircle.setMap(map);
+                map.fitBounds(qCircle.getBounds());//fits the maps bounds to circle
+                document.getElementById('googleMap').scrollIntoView();
+            }
+        </script>
+    </div>
+    <?php
+    echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv6wuQJDE4QzG9Oy_FDXcOtuptY4Lksu8&callback=myMap"></script>';
+}
+?>
+
+
+<!--<div id="map_div">
     <script>
         function myMap() {
-            var lat = <?php echo json_encode($latitude); ?>;
-            var lon = <?php echo json_encode($longitude); ?>;
-            var rad = <?php echo json_encode($radius_km); ?>;
-            var color =<?php echo json_encode("#ff948e"); ?>;
+            var lat = <?php /*echo json_encode($latitude); */?>;
+            var lon = <?php /*echo json_encode($longitude); */?>;
+            var rad = <?php /*echo json_encode($radius_km); */?>;
+            var color =<?php /*echo json_encode("#ff948e"); */?>;
             var position = new google.maps.LatLng(lat, lon);
             var mapProp = {
                 center:position,
@@ -88,6 +124,6 @@ if (isset($_POST["submit"])) {
         }
     </script>
 </div>
-<?php echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';}?>
+--><?php /*echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';}*/?>
 </body>
 </html>
