@@ -38,17 +38,26 @@ if (isset($_POST["submit"])){
         echo '</script>';
         die(print_r(sqlsrv_errors(), true));
     }
-
-    $sql="INSERT INTO driver(driver_id, name, date_of_birth, address, hobby) 
-            VALUES ('" . addslashes($_POST['driver_id']). "',
-                    '" . addslashes($_POST['name'])     . "',
+    $dID_exist = "SELECT driver_id FROM driver WHERE driver_id='" . $_POST['driver_id'] . "'";
+    $exist = sqlsrv_query($conn, $sql);
+    if(sqlsrv_num_rows($exist) === 0) {
+        $sql = "INSERT INTO driver(driver_id, name, date_of_birth, address, hobby) 
+            VALUES ('" . addslashes($_POST['driver_id']) . "',
+                    '" . addslashes($_POST['name']) . "',
                     '" . addslashes($_POST['birthday']) . "',
-                    '" . addslashes($_POST['address'])  . "',
-                    '" . addslashes($_POST['hobby'])    . "');";
-    $result = sqlsrv_query($conn, $sql);
-    echo '<script language = "javascript">';
-    echo 'alert("Upload successful!")';
-    echo '</script>';
+                    '" . addslashes($_POST['address']) . "',
+                    '" . addslashes($_POST['hobby']) . "');";
+        $result = sqlsrv_query($conn, $sql);
+        echo '<script language = "javascript">';
+        echo 'alert("Upload successful!")';
+        echo '</script>';
+    }
+    else{
+        echo '<script language = "javascript">';
+        echo 'alert("Driver ID already in database")';
+        echo '</script>';
+        die(print_r(sqlsrv_errors(), true));
+    }
     }
 ?>
 </body>
