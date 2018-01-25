@@ -62,34 +62,8 @@ if (isset($_POST["submit"])) {
     }
     elseif ($heat > 50){
         $color = "#d65562";
-    }}
+    }
 ?>
-<!--<div id="map_div">
-    <script>
-        function myMap() {
-            var lat = <?php /*echo json_encode($latitude); */?>;
-            var lon = <?php /*echo json_encode($longitude); */?>;
-            var rad = <?php /*echo json_encode($radius_km); */?>;
-            var color =<?php /*echo json_encode("#ff948e"); */?>;
-            var position = new google.maps.LatLng(lat, lon);
-            var mapProp = {
-                center:position,
-                zoom:8
-            };
-            var map=new google.maps.Map(document.getElementById("map_div"),mapProp);
-            var perimeter = new google.maps.Circle({center: position,
-                                                    radius: rad,
-                                                    strokeColor: color,
-                                                    strokeOpacity: 0.5,
-                                                    strokeWeight: 2,
-                                                    fillColor: color,
-                                                    fillOpacity: 0.2});
-            perimeter.setMap(map);
-            map.fitBounds(perimeter.getBounds());
-            document.getElementById('map_div').scrollIntoView();
-        }
-    </script>
-</div>
 --><?php /*echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';*/?>
 
 <div id="googleMap" style="width:100%;height:400px;"></div>
@@ -117,6 +91,6 @@ if (isset($_POST["submit"])) {
         document.getElementById('map_div').scrollIntoView();
     }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>
+<?php echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';} ?>
 </body>
 </html>
