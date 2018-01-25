@@ -15,7 +15,7 @@
         <input type="number" step="any" title="latitude" name="latitude" max="90" min="-90" required>
         Longitude:
         <input type="number" step="any" title="longitude" name="longitude" max="180" min="-180" required><br><br>
-        Radius (metres):<br>
+        Radius (Kilometres):<br>
         <input type="number" title="radius" name="radius" maxlength="500" required><br><br>
     </div>
     <div style="clear:both"></div>
@@ -77,18 +77,19 @@ if (isset($_POST["submit"])) {
     $latitude = floatval($_POST['latitude']);
     $longitude = floatval($_POST['longitude']);
     $radius_km = intval($_POST['radius']);
-    $create_view =   "  SELECT count(car_id) AS heat
-                        FROM small_drive
-                        WHERE (
-                          (datepart(HOUR,Ctime) BETWEEN ". $hour ." and ". $hour ."+1) AND
-                          12749.19148 *
-                          asin(sqrt(power((sin(radians((". $latitude ."-location_lat)/2))),2)+
-                                    cos(radians(location_lat))*
-                                    cos(radians(". $latitude ."))*
-                                    power((sin(radians((". $longitude ."-location_long)/2))),2))) < ". $radius_km .")";
+    $sql = "  SELECT count(car_id) AS heat
+                FROM small_drive
+                WHERE (
+                  (datepart(HOUR,Ctime) BETWEEN ". $hour ." and ". $hour ."+1) AND
+                  12749.19148 *
+                  asin(sqrt(power((sin(radians((". $latitude ."-location_lat)/2))),2)+
+                            cos(radians(location_lat))*
+                            cos(radians(". $latitude ."))*
+                            power((sin(radians((". $longitude ."-location_long)/2))),2))) < ". $radius_km .")";
     $result = sqlsrv_query($conn, $sql);
-    $row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC);
-    $count = $row['heat'];
+    $heat = $result["heat"];
+    echo '<script language = "javascript">';
+    echo $heat;
+    echo '</script>';
     echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv6wuQJDE4QzG9Oy_FDXcOtuptY4Lksu8&callback=myMap"></script>';
-
 }
