@@ -96,7 +96,7 @@ if (isset($_POST["submit"])) {
 <script>
     function myMap() {
         var mapProp= {
-            center:new google.maps.LatLng(41.6,-74),
+            center:new google.maps.LatLng(41,-74),
             zoom:8,
         };
         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
@@ -108,8 +108,8 @@ if (isset($_POST["submit"])) {
             fillColor: color,
             fillOpacity: 0.2});
         perimeter.setMap(map);
-        /*map.fitBounds(perimeter.getBounds());*/
-        /*document.getElementById('map_div').scrollIntoView();*/
+        map.fitBounds(perimeter.getBounds());
+        document.getElementById('map_div').scrollIntoView();
     }
 </script>
 
