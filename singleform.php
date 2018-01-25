@@ -36,21 +36,21 @@ if ($conn === false) {
     die(print_r(sqlsrv_errors(), true));
 }
 if (isset($_POST["submit"])) {
-    $dID = htmlspecialchars($_POST['dID']);
-    $name = htmlspecialchars($_POST['name']);
-    $address = htmlspecialchars($_POST['address']);
-    $d_birth = htmlspecialchars($_POST['d_birth']);
-    $hobby = htmlspecialchars($_POST['hobby']);
+    $dID = addslashes($_POST['dID']);
+    $name = addslashes($_POST['name']);
+    $address = addslashes($_POST['address']);
+    $d_birth = addslashes($_POST['d_birth']);
+    $hobby = addslashes($_POST['hobby']);
 /*  $dID_int = intval($dID);
     $check_unique = "SELECT dID
                         FROM project.Driver
                         WHERE dID=".$dID_int;
        $result = sqlsrv_query($conn, $check_unique);*/
-    if(sqlsrv_num_rows($result) == 0) { //Insert form data into "Driver" table if dID does not already exist
-        $insert = "INSERT INTO dbstudents.dbo.driver(driver_id,  name,  date_of_birth,  address,  hobby)
+//    if(sqlsrv_num_rows($result) == 0) { //Insert form data into "Driver" table if dID does not already exist
+        $insert = "INSERT INTO driver(driver_id,  name,  date_of_birth,  address,  hobby)
                         VALUES( " . $dID . ",  
                                '" . $name . "',
-                                CONVERT(DATETIME2,'" . $d_birth . "',21) ,
+                               '" . $d_birth . "',
                                '" . $address . "',
                                '" . $hobby . "');";
         $result = sqlsrv_query($conn, $sql);
@@ -59,18 +59,19 @@ if (isset($_POST["submit"])) {
             echo 'alert("Update failure!")';
             echo '</script>';
             die();
-        } else {
+        }
+        else {
             echo '<script language = "javascript">';
             echo 'alert("Update successful!")';
             echo '</script>';
         }
-    }
+/*    }
     else{
         echo '<script language = "javascript">';
         echo 'alert("Driver ID already in database!")';
         echo '</script>';
         die();
-    }
+    }*/
 }
 ?>
 </body>

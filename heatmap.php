@@ -24,7 +24,7 @@
     </div></p>
 </form>
 
-<div id="map"></div>
+<div id="map">
 <script>
 function myMap() {
     var mapProp = {
@@ -35,6 +35,7 @@ function myMap() {
 }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>
+</div>
 </body>
 </html>
 
