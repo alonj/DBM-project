@@ -78,13 +78,13 @@ if (isset($_POST["submit"])) {
             zoom:9,
         };
         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-        /*var perimeter = new google.maps.Circle({center: position,
+        var perimeter = new google.maps.Circle({center: position,
             radius: rad,
             strokeColor: color,
             strokeOpacity: 0.5,
             strokeWeight: 2,
             fillColor: color,
-            fillOpacity: 0.2});*/
+            fillOpacity: 0.2});
         perimeter.setMap(map);
         map.fitBounds(perimeter.getBounds());
         document.getElementById('map_div').scrollIntoView();
