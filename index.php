@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
 <html>
 <head>
     <meta charset="utf-8" />
@@ -11,15 +10,6 @@ session_start();
 <?php
 $_SESSION["server"] = "tcp:techniondbcourse01.database.windows.net,1433";
 $_SESSION["c"] = array("Database" => "dbstudents", "UID" => "dbstudents", "PWD" => "Qwerty12!");
-sqlsrv_configure('WarningsReturnAsErrors', 0);
-$_SESSION["conn"] = sqlsrv_connect($_SESSION["server"], $_SESSION["c"]);
-if($conn === false)
-{
-    echo '<script language = "javascript">';
-    echo 'alert("Connection to database failed!")';
-    echo '</script>';
-    die(print_r(sqlsrv_errors(), true));
-}
 ?>
   <link rel="stylesheet" href='styles.css' type="text/css">
   <div class="topbanner">
