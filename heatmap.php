@@ -70,10 +70,6 @@ if (isset($_POST["submit"])) {
     elseif ($heat > 50){
         $color = "#d65562";
     }
-    echo '<script language = "javascript">';
-    echo 'alert("'. $heat .'");';
-    echo '</script>';
-
 ?>
 <div>
     <div id="googleMap">
