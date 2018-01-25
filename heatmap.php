@@ -49,28 +49,41 @@ if (isset($_POST["submit"])) {
     $sql = "  SELECT count(car_id) AS heat
                 FROM small_drive
                 WHERE (
-                  (datepart(HOUR,Ctime) BETWEEN ". $hour ." and ". $hour ."+1) AND
-                  12749.19148 *
-                  asin(sqrt(power((sin(radians((". $latitude ."-location_lat)/2))),2)+
+                  (datepart(HOUR,Ctime) = ". $hour .") AND
+                  (12749.19148 *
+                  asin(sqrt(
+                            power(
+                                (sin
+                                    (radians((". $latitude ."-location_lat)/2)
+                                    )
+                                ),2)+
                             cos(radians(location_lat))*
                             cos(radians(". $latitude ."))*
-                            power((sin(radians((". $longitude ."-location_long)/2))),2))) < ". $radius_km .")";
+                            power((sin(radians((". $longitude ."-location_long)/2))),2))) < ". $radius_km ."))";
     $result = sqlsrv_query($conn, $sql);
     $row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
     $heat = $row['heat'];
+    $color = "#7a97ff";
+    if($heat <= 50 and $heat > 20){
+        $color = "#d477cf";
+    }
+    elseif ($heat > 50){
+        $color = "#d65562";
+    }
     echo '<script language = "javascript">';
     echo 'alert("'. $heat .'");';
     echo '</script>';
+
 ?>
 
 
-    <div id="googleMap" class="gMap">
+    <div id="googleMap">
         <script>
             function myMap() {
                 var qLat =  <?php echo json_encode($latitude,JSON_NUMERIC_CHECK); ?>;
                 var qLng = <?php echo json_encode($longitude,JSON_NUMERIC_CHECK); ?>;
                 var qRadius = <?php echo json_encode($radius_km,JSON_NUMERIC_CHECK); ?>;
-                var qColor = <?php echo json_encode("#ff948e"); ?>;
+                var qColor = <?php echo json_encode($color); ?>;
                 var qPos = new google.maps.LatLng(qLat, qLng);
                 var mapProp = {
                     center: qPos,
@@ -93,7 +106,7 @@ if (isset($_POST["submit"])) {
         </script>
     </div>
     <?php
-    echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv6wuQJDE4QzG9Oy_FDXcOtuptY4Lksu8&callback=myMap"></script>';
+    echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';
 }
 ?>
 
