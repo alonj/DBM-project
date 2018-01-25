@@ -25,36 +25,6 @@
         <div style="clear:both"></div>
     </div></p>
 </form>
-
-<div id="map">
-<script>
-function myMap() {
-    var lat = $latitude;
-    var lon = $longitude;
-    var rad = $radius;
-    var color = "#ff8785";
-    var position = new google.maps.LatLng(lat, lon);
-    var mapProp = {
-        center:position,
-        zoom:8
-    };
-    var map=new google.maps.Map(document.getElementById("map"),mapProp);
-    var perimeter = new google.maps.Circle({center: position,
-                                            radius: rad,
-                                            strokeColor: color,
-                                            strokeOpacity: 0.5,
-                                            strokeWeight: 2,
-                                            fillColor: color,
-                                            fillOpacity: 0.2});
-    perimeter.setMap(map);
-    map.fitBounds(perimeter.getBounds());
-    document.getElementById('map').scrollIntoView();
-}
-</script>
-</div>
-</body>
-</html>
-
 <?php
 /**
  * Created by PhpStorm.
@@ -91,5 +61,33 @@ if (isset($_POST["submit"])) {
     echo '<script language = "javascript">';
     echo $heat;
     echo '</script>';
-    echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv6wuQJDE4QzG9Oy_FDXcOtuptY4Lksu8&callback=myMap"></script>';
-}
+?>
+<div id="map">
+    <script>
+        function myMap() {
+            var lat = $latitude;
+            var lon = $longitude;
+            var rad = $radius;
+            var color = "#ff8785";
+            var position = new google.maps.LatLng(lat, lon);
+            var mapProp = {
+                center:position,
+                zoom:8
+            };
+            var map=new google.maps.Map(document.getElementById("map"),mapProp);
+            var perimeter = new google.maps.Circle({center: position,
+                                                    radius: rad,
+                                                    strokeColor: color,
+                                                    strokeOpacity: 0.5,
+                                                    strokeWeight: 2,
+                                                    fillColor: color,
+                                                    fillOpacity: 0.2});
+            perimeter.setMap(map);
+            map.fitBounds(perimeter.getBounds());
+            document.getElementById('map').scrollIntoView();
+        }
+    </script>
+</div>
+<?php echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv6wuQJDE4QzG9Oy_FDXcOtuptY4Lksu8&callback=myMap"></script>';}?>
+</body>
+</html>
