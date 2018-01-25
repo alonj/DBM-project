@@ -13,12 +13,12 @@ session_start();
                 echo '</script>';
             die(print_r(sqlsrv_errors(), true));
         }
-        $sql = "SELECT avg(count) as avg, month, day
+        $sql = "SELECT avg(count) as avg, month
                     FROM
-                    (SELECT count(car_id) as count , DATEPART(MONTH, Ctime) as month, DATEPART(HOUR, Ctime) as hour, DATEPART(DAY, Ctime) as day
-                    FROM small_drive sd
-                    GROUP BY DATEPART(MONTH, Ctime), DATEPART(HOUR, Ctime), DATEPART(DAY, Ctime)) a
-                    GROUP BY month, day";
+                      (SELECT count(car_id) as count , DATEPART(MONTH, Ctime) as month, DATEPART(HOUR, Ctime) as hour
+                       FROM small_drive sd
+                       GROUP BY DATEPART(MONTH, Ctime), DATEPART(HOUR, Ctime), DATEPART(DAY, Ctime)) a
+                    GROUP BY month";
         $result = sqlsrv_query($conn, $sql);
         if( $result === false) {
             die( print_r( sqlsrv_errors(), true) );
@@ -34,7 +34,7 @@ session_start();
                 ['Month', 'Day', 'Use Count'],
                 <?php while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
                 {
-                    echo "['". $row[1]."', ". $row[2] .", ".$row[0]."], ";
+                    echo "['". $row['month']."', ". $row['avg'] ."], ";
                 }?>
             ]);
 
