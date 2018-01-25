@@ -95,8 +95,13 @@ if (isset($_POST["submit"])) {
 <div id="googleMap" style="width:100%;height:400px;"></div>
 <script>
     function myMap() {
-        var mapProp= {
-            center:new google.maps.LatLng(41,-74),
+        var lat = <?php echo json_encode($latitude); ?>;
+        var lon = <?php echo json_encode($longitude); ?>;
+        var rad = <?php echo json_encode($radius_km); ?>;
+        var color =<?php echo json_encode($color); ?>;
+        var position = new google.maps.LatLng(lat, lon);
+        var mapProp = {
+            center:position,
             zoom:9,
         };
         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
