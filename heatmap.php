@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 </head>
 <body>
-<!--<link rel="stylesheet" href='styles.css' type="text/css">
+<!--<link rel="stylesheet" href='styles.css' type="text/css">-->
 <form action="<?php /*/*echo $_SERVER['PHP_SELF'];*/?>" method="post" style="width: 100%; background-color: white; float: left; min-height: 100%">
     <div style="float: left; padding-left: 20%; padding-top: 5%; font-family: Calibri">
         Hour:<br>
@@ -23,7 +23,7 @@
         <input type="reset" value="Reset form"><br><br>
         <div style="clear:both"></div>
     </div>
-</form>-->
+</form>
 
 --><?php
 /*$latitude = 40.7128;
@@ -97,7 +97,7 @@ if (isset($_POST["submit"])) {
     function myMap() {
         var mapProp= {
             center:new google.maps.LatLng(41,-74),
-            zoom:8,
+            zoom:9,
         };
         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
         var perimeter = new google.maps.Circle({center: position,
@@ -112,7 +112,6 @@ if (isset($_POST["submit"])) {
         document.getElementById('map_div').scrollIntoView();
     }
 </script>
-
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>
 </body>
 </html>
