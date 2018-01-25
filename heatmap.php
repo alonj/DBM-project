@@ -1,4 +1,4 @@
-<?php /*session_start(); */?><!--
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html>
@@ -25,6 +25,7 @@
         <div style="clear:both"></div>
     </div>
 </form>
+
 --><?php
 /*$latitude = 40.7128;
 $longitude = -74.0060;
@@ -92,19 +93,12 @@ if (isset($_POST["submit"])) {
 </div>
 --><?php /*echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';*/?>
 
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>My First Google Map</h1>
-
 <div id="googleMap" style="width:100%;height:400px;"></div>
-
 <script>
     function myMap() {
         var mapProp= {
             center:new google.maps.LatLng(41.6,-74),
-            zoom:5,
+            zoom:8,
         };
         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
         var perimeter = new google.maps.Circle({center: position,
@@ -115,7 +109,8 @@ if (isset($_POST["submit"])) {
             fillColor: color,
             fillOpacity: 0.2});
         perimeter.setMap(map);
-
+        map.fitBounds(perimeter.getBounds());
+        document.getElementById('map_div').scrollIntoView();
     }
 </script>
 
