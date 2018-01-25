@@ -63,9 +63,10 @@ if (isset($_POST["submit"])) {
     elseif ($heat > 50){
         $color = "#d65562";
     }
+    echo "<div id='loadImg'><div><img src='resources/4.gif' /></div></div>";
 }
 ?>
-<div id="loadImg"><div><img src="resources/4.gif" /></div></div>
+
 <div id="googleMap" style="width:100%;height:400px;" onload="document.getElementById('loadImg').style.display='none';"></div>
 <script>
     function myMap() {
