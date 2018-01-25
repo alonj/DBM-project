@@ -12,7 +12,7 @@ session_start();
 $_SESSION["server"] = "tcp:techniondbcourse01.database.windows.net,1433";
 $_SESSION["c"] = array("Database" => "dbstudents", "UID" => "dbstudents", "PWD" => "Qwerty12!");
 sqlsrv_configure('WarningsReturnAsErrors', 0);
-$_SESSION["conn"] = sqlsrv_connect($server, $c);
+$_SESSION["conn"] = sqlsrv_connect($_SESSION["server"], $_SESSION["c"]);
 if($conn === false)
 {
     echo '<script language = "javascript">';
