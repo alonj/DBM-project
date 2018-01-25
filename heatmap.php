@@ -102,11 +102,30 @@ if (isset($_POST["submit"])) {
 
 <script>
     function myMap() {
-        var mapProp= {
-            center:new google.maps.LatLng(51.508742,-0.120850),
-            zoom:5,
+        //var lat = <?php //echo json_encode($latitude); ?>//;
+        //var lon = <?php //echo json_encode($longitude); ?>//;
+        //var rad = <?php //echo json_encode($radius_km); ?>//;
+        var lat = <?php echo json_encode(40.6); ?>;
+        var lon = <?php echo json_encode(-74); ?>;
+        var rad = <?php echo json_encode(3); ?>;
+
+        var color =<?php echo json_encode("#ff948e"); ?>;
+        var position = new google.maps.LatLng(lat, lon);
+        var mapProp = {
+            center:position,
+            zoom:8
         };
-        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        var map=new google.maps.Map(document.getElementById("map_div"),mapProp);
+        var perimeter = new google.maps.Circle({center: position,
+            radius: rad,
+            strokeColor: color,
+            strokeOpacity: 0.5,
+            strokeWeight: 2,
+            fillColor: color,
+            fillOpacity: 0.2});
+        perimeter.setMap(map);
+        map.fitBounds(perimeter.getBounds());
+        document.getElementById('map_div').scrollIntoView();
     }
 </script>
 
