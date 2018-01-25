@@ -27,7 +27,7 @@
 </form>
 <?php
 if (isset($_POST["submit"])){
-    $server = "tcp:techniondbcourse01.database.windows.net,1433";
+/*    $server = "tcp:techniondbcourse01.database.windows.net,1433";
     $c = array("Database" => "dbstudents", "UID" => "dbstudents", "PWD" => "Qwerty12!");
     sqlsrv_configure('WarningsReturnAsErrors', 0);
     $conn = sqlsrv_connect($server, $c);
@@ -37,9 +37,9 @@ if (isset($_POST["submit"])){
         echo 'alert("Connection to database failed!")';
         echo '</script>';
         die(print_r(sqlsrv_errors(), true));
-    }
+    }*/
     $dID_exist = "SELECT driver_id FROM driver WHERE driver_id='" . $_POST['driver_id'] . "'";
-    $exist = sqlsrv_query($conn, $sql);
+    $exist = sqlsrv_query($_SESSION["conn"], $dID_exist);
     if(sqlsrv_num_rows($exist) === 0) {
         $sql = "INSERT INTO driver(driver_id, name, date_of_birth, address, hobby) 
             VALUES ('" . addslashes($_POST['driver_id']) . "',
@@ -47,7 +47,7 @@ if (isset($_POST["submit"])){
                     '" . addslashes($_POST['birthday']) . "',
                     '" . addslashes($_POST['address']) . "',
                     '" . addslashes($_POST['hobby']) . "');";
-        $result = sqlsrv_query($conn, $sql);
+        $result = sqlsrv_query($_SESSION["conn"], $sql);
         echo '<script language = "javascript">';
         echo 'alert("Upload successful!")';
         echo '</script>';

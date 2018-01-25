@@ -1,9 +1,26 @@
+<?php
+session_start();
+?>
+
 <html>
 <head>
     <meta charset="utf-8" />
     <title>New York - Public Transportation</title>
 </head>
 <body>
+<?php
+$_SESSION["server"] = "tcp:techniondbcourse01.database.windows.net,1433";
+$_SESSION["c"] = array("Database" => "dbstudents", "UID" => "dbstudents", "PWD" => "Qwerty12!");
+sqlsrv_configure('WarningsReturnAsErrors', 0);
+$_SESSION["conn"] = sqlsrv_connect($server, $c);
+if($conn === false)
+{
+    echo '<script language = "javascript">';
+    echo 'alert("Connection to database failed!")';
+    echo '</script>';
+    die(print_r(sqlsrv_errors(), true));
+}
+?>
   <link rel="stylesheet" href='styles.css' type="text/css">
   <div class="topbanner">
       <img height="61px" width="100px" src="https://static-assets.ny.gov/sites/all/themes/ny_gov/images/logo_footer.png" class="title" alt="New York - Public Transportation Information">
