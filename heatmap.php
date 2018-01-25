@@ -79,7 +79,7 @@ if (isset($_POST["submit"])) {
         };
         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
         var perimeter = new google.maps.Circle({center: position,
-            radius: rad,
+            radius: rad*1000,
             strokeColor: color,
             strokeOpacity: 0.5,
             strokeWeight: 2,
