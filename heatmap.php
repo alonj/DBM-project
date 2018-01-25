@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php /*session_start(); */?><!--
 
 <!DOCTYPE html>
 <html>
@@ -7,7 +7,7 @@
 </head>
 <body>
 <link rel="stylesheet" href='styles.css' type="text/css">
-<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" style="width: 100%; background-color: white; float: left; min-height: 100%">
+<form action="<?php /*echo $_SERVER['PHP_SELF'];*/?>" method="post" style="width: 100%; background-color: white; float: left; min-height: 100%">
     <div style="float: left; padding-left: 20%; padding-top: 5%; font-family: Calibri">
         Hour:<br>
         <input type="number" title="hour" name="hour" min="1" max="24" required autofocus><br><br>
@@ -25,8 +25,8 @@
         <div style="clear:both"></div>
     </div>
 </form>
-<?php
-$latitude = 40.7128;
+--><?php
+/*$latitude = 40.7128;
 $longitude = -74.0060;
 sqlsrv_configure('WarningsReturnAsErrors', 0);
 $conn = sqlsrv_connect($_SESSION["server"], $_SESSION["c"]);
@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
     elseif ($heat > 50){
         $color = "#d65562";
     }}
-?>
+*/?>
 <!--<div id="map_div">
     <script>
         function myMap() {
@@ -92,6 +92,12 @@ if (isset($_POST["submit"])) {
 </div>
 --><?php /*echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';*/?>
 
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Google Map</h1>
+
 <div id="googleMap" style="width:100%;height:400px;"></div>
 
 <script>
@@ -105,6 +111,5 @@ if (isset($_POST["submit"])) {
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>
-
 </body>
 </html>
