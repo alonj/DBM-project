@@ -19,7 +19,7 @@ $_SESSION["c"] = array("Database" => "dbstudents", "UID" => "dbstudents", "PWD" 
           <li><a href="homepage.php" target="center_frame">Homepage</a><br></li>
           <li><a href="singleform.php" target="center_frame">Add driver (singular form)</a><br></li>
           <li><a href="fileform.php" target="center_frame">Add ride details from file<br>(.csv format)</a><br></li>
-          <li><a href="heatmap.php"<!--target="center_frame"-->>New York Heatmap</a><br></li>
+          <li><a href="heatmap.php" target="center_frame">New York Heatmap</a><br></li>
       </ul>
   </div>
   <div class="middle">
