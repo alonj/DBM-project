@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,14 +29,28 @@
 <div id="map">
 <script>
 function myMap() {
+    var lat = $latitude;
+    var lon = $longitude;
+    var rad = $radius;
+    var color = "#ff8785";
+    var position = new google.maps.LatLng(lat, lon);
     var mapProp = {
-        center:new google.maps.LatLng(51.508742,-0.120850),
-        zoom:5
+        center:position,
+        zoom:8
     };
     var map=new google.maps.Map(document.getElementById("map"),mapProp);
+    var perimeter = new google.maps.Circle({center: position,
+                                            radius: rad,
+                                            strokeColor: color,
+                                            strokeOpacity: 0.5,
+                                            strokeWeight: 2,
+                                            fillColor: color,
+                                            fillOpacity: 0.2});
+    perimeter.setMap(map);
+    map.fitBounds(perimeter.getBounds());
+    document.getElementById('map').scrollIntoView();
 }
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>
 </div>
 </body>
 </html>
@@ -47,10 +63,11 @@ function myMap() {
  * Time: 15:40
  */
 //Connect to SQL server
-$server = "tcp:techniondbcourse01.database.windows.net,1433";
-$c = array("Database" => "alonj", "UID" => "alonj", "PWD" => "Qwerty12!");
+$latitude = 40.7128;
+$longitude = -74.0060;
+echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv6wuQJDE4QzG9Oy_FDXcOtuptY4Lksu8&callback=myMap"></script>';
 sqlsrv_configure('WarningsReturnAsErrors', 0);
-$conn = sqlsrv_connect($server, $c);
+$conn = sqlsrv_connect($_SESSION["server"], $_SESSION["c"]);
 if ($conn === false) {
     echo "error";
     die(print_r(sqlsrv_errors(), true));
@@ -60,11 +77,11 @@ if (isset($_POST["submit"])) {
     $latitude = floatval($_POST['latitude']);
     $longitude = floatval($_POST['longitude']);
     $radius = intval($_POST['radius']);
-    $create_view =   "CREATE OR REPLACE VIEW project.Heatmap AS
+    $create_view =   "SELECT count(car_id) AS heat
                       SELECT COUNT(rID)
-                      FROM project.RideP
+                      FROM small_drive
                       WHERE (
-                      RideP.time BETWEEN('".$hour."', DATEADD(hh,1,'".$hour."')) AND
+                      small_drive.Ctime BETWEEN('".$hour."', DATEADD(hh,1,'".$hour."')) AND
                       ACOS(SIN('".$latitude."' *0.01745329252)*
                       SIN(project.RideP.latitude*0.01745329252) +
                       COS('".$latitude."'*0.01745329252)*
@@ -73,6 +90,8 @@ if (isset($_POST["submit"])) {
                       *6371 <= ('".$radius."'/1000)
                       );";
     $result = sqlsrv_query($conn, $sql);
-    $query = "SELECT * FROM project.Heatmap";
-    echo $query;
+    $row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC);
+    $count = $row['heat'];
+    echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv6wuQJDE4QzG9Oy_FDXcOtuptY4Lksu8&callback=myMap"></script>';
+
 }
