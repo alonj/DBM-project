@@ -93,10 +93,7 @@ if (isset($_POST["submit"])) {
 </script>
 <?php
 if (isset($_POST["submit"])) {
-    echo "<div id='loadImg'><div><img src='resources/4.gif' /></div></div>";
-    echo "<div onload='document.getElementById('loadImg').style.display='none';'>";
     echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';
-    echo "</div>";
 }
 ?>
 </body>

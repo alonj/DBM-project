@@ -18,7 +18,8 @@ session_start();
                       (SELECT count(car_id) as count , DATEPART(MONTH, Ctime) as month, DATEPART(HOUR, Ctime) as hour
                        FROM small_drive sd
                        GROUP BY DATEPART(MONTH, Ctime), DATEPART(HOUR, Ctime), DATEPART(DAY, Ctime)) a
-                    GROUP BY month";
+                    GROUP BY month
+                    ORDER BY month";
         $result = sqlsrv_query($conn, $sql);
         if( $result === false) {
             die( print_r( sqlsrv_errors(), true) );
@@ -53,14 +54,14 @@ session_start();
 <body>
 <p class="quote" style="font-weight: bold;
                         font-size: 16px;
-                        color: whitesmoke;
-                        font-family: "D Sari Bold", Calibri, sans-serif;
-                        text-align: center;"> Below, tracking the average hourly usage, per month, over time.</p><br>
+                        color: #0B5584;
+                        font-family: 'D Sari Bold', Calibri, sans-serif;
+                        text-align: center;"> Below, tracking the average hourly usage (number of rides recorded), per month, over time.</p><br>
 <div id="curve_chart" style="width: 900px; height: 500px"></div>
 <p class="quote" style="font-weight: bold;
                         font-size: 16px;
-                        color: whitesmoke;
-                        font-family: "D Sari Bold", Calibri, sans-serif;
+                        color: #0B5584;
+                        font-family: 'D Sari Bold', Calibri, sans-serif;
                         text-align: center;"> Note, the data will become more significant as it grows.</p><br>
 </body>
 </html>
