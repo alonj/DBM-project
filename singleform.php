@@ -41,6 +41,7 @@ if (isset($_POST["submit"])){
     $dID_exist = "SELECT driver_id FROM driver WHERE driver_id='" . $_POST['driver_id'] . "'";
     $exist = sqlsrv_query($_SESSION["conn"], $dID_exist);
     $row_count = sqlsrv_num_rows($exist);
+    echo $row_count;
     if($row_count === 0) {
         $sql = "INSERT INTO driver(driver_id, name, date_of_birth, address, hobby) 
             VALUES ('" . addslashes($_POST['driver_id']) . "',
