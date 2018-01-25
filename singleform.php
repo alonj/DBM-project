@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -26,6 +29,8 @@
         </div></p>
 </form>
 <?php
+print_r($_SESSION);
+
 if (isset($_POST["submit"])){
 /*    $server = "tcp:techniondbcourse01.database.windows.net,1433";
     $c = array("Database" => "dbstudents", "UID" => "dbstudents", "PWD" => "Qwerty12!");
@@ -38,6 +43,7 @@ if (isset($_POST["submit"])){
         echo '</script>';
         die(print_r(sqlsrv_errors(), true));
     }*/
+    $conn = sqlsrv_connect($_SESSION["server"], $_SESSION["c"]);
     if($conn === false)
     {
         echo '<script language = "javascript">';
