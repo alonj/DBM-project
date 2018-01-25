@@ -25,8 +25,8 @@
     </div>
 </form>
 
---><?php
-/*$latitude = 40.7128;
+<?php
+$latitude = 40.7128;
 $longitude = -74.0060;
 sqlsrv_configure('WarningsReturnAsErrors', 0);
 $conn = sqlsrv_connect($_SESSION["server"], $_SESSION["c"]);
@@ -63,7 +63,7 @@ if (isset($_POST["submit"])) {
     elseif ($heat > 50){
         $color = "#d65562";
     }}
-*/?>
+?>
 <!--<div id="map_div">
     <script>
         function myMap() {
