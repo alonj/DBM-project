@@ -59,7 +59,7 @@ if (isset($_POST["submit"])) {
     $row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
     $heat = $row['heat'];
     echo '<script language = "javascript">';
-    echo $heat;
+    echo 'alert("'. $heat .'");';
     echo '</script>';
 ?>
 <div id="map_div">
