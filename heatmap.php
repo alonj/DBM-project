@@ -23,7 +23,7 @@
         <input type="submit" name="submit" value="Submit">
         <input type="reset" value="Reset form"><br><br>
         <div style="clear:both"></div>
-    </div></p>
+    </div>
 </form>
 <?php
 /**
@@ -35,7 +35,6 @@
 //Connect to SQL server
 $latitude = 40.7128;
 $longitude = -74.0060;
-//echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv6wuQJDE4QzG9Oy_FDXcOtuptY4Lksu8&callback=myMap"></script>';
 sqlsrv_configure('WarningsReturnAsErrors', 0);
 $conn = sqlsrv_connect($_SESSION["server"], $_SESSION["c"]);
 if ($conn === false) {
@@ -62,7 +61,7 @@ if (isset($_POST["submit"])) {
     echo $heat;
     echo '</script>';
 ?>
-<div id="map">
+<div id="map_div">
     <script>
         function myMap() {
             var lat = <?php echo json_encode($latitude); ?>;
@@ -74,7 +73,7 @@ if (isset($_POST["submit"])) {
                 center:position,
                 zoom:8
             };
-            var map=new google.maps.Map(document.getElementById("map"),mapProp);
+            var map=new google.maps.Map(document.getElementById("map_div"),mapProp);
             var perimeter = new google.maps.Circle({center: position,
                                                     radius: rad,
                                                     strokeColor: color,
@@ -84,10 +83,10 @@ if (isset($_POST["submit"])) {
                                                     fillOpacity: 0.2});
             perimeter.setMap(map);
             map.fitBounds(perimeter.getBounds());
-            document.getElementById('map').scrollIntoView();
+            document.getElementById('map_div').scrollIntoView();
         }
     </script>
 </div>
-<?php echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv6wuQJDE4QzG9Oy_FDXcOtuptY4Lksu8&callback=myMap"></script>';}?>
+<?php echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';}?>
 </body>
 </html>
