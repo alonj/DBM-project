@@ -42,7 +42,7 @@ if (isset($_POST["submit"])) {
     $sql = "  SELECT count(car_id) AS heat
                 FROM small_drive
                 WHERE (
-                  (datepart(HOUR,Ctime) = ". $hour .") AND
+                  (datepart(HOUR,Ctime) BETWEEN ". $hour ." and ". $hour ."+1) AND
                   (12749.19148 *
                   asin(sqrt(
                             power(
