@@ -65,7 +65,7 @@ function myMap() {
 //Connect to SQL server
 $latitude = 40.7128;
 $longitude = -74.0060;
-echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv6wuQJDE4QzG9Oy_FDXcOtuptY4Lksu8&callback=myMap"></script>';
+//echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCv6wuQJDE4QzG9Oy_FDXcOtuptY4Lksu8&callback=myMap"></script>';
 sqlsrv_configure('WarningsReturnAsErrors', 0);
 $conn = sqlsrv_connect($_SESSION["server"], $_SESSION["c"]);
 if ($conn === false) {
@@ -76,19 +76,16 @@ if (isset($_POST["submit"])) {
     $hour= intval($_POST['hour']);
     $latitude = floatval($_POST['latitude']);
     $longitude = floatval($_POST['longitude']);
-    $radius = intval($_POST['radius']);
-    $create_view =   "SELECT count(car_id) AS heat
-                      SELECT COUNT(rID)
-                      FROM small_drive
-                      WHERE (
-                      small_drive.Ctime BETWEEN('".$hour."', DATEADD(hh,1,'".$hour."')) AND
-                      ACOS(SIN('".$latitude."' *0.01745329252)*
-                      SIN(project.RideP.latitude*0.01745329252) +
-                      COS('".$latitude."'*0.01745329252)*
-                      COS(project.RideP.latitude*0.01745329252)*
-                      COS(0.01745329252*(project.RideP.longitude-'".$longitude."')))
-                      *6371 <= ('".$radius."'/1000)
-                      );";
+    $radius_km = intval($_POST['radius']);
+    $create_view =   "  SELECT count(car_id) AS heat
+                        FROM small_drive
+                        WHERE (
+                          (datepart(HOUR,Ctime) BETWEEN ". $hour ." and ". $hour ."+1) AND
+                          12749.19148 *
+                          asin(sqrt(power((sin(radians((". $latitude ."-location_lat)/2))),2)+
+                                    cos(radians(location_lat))*
+                                    cos(radians(". $latitude ."))*
+                                    power((sin(radians((". $longitude ."-location_long)/2))),2))) < ". $radius_km .")";
     $result = sqlsrv_query($conn, $sql);
     $row = sqlsrv_fetch_array($result,SQLSRV_FETCH_ASSOC);
     $count = $row['heat'];
