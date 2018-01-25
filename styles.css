@@ -103,3 +103,6 @@ tbody {
 #map {
     height: 100%;
 }
+
+#loadImg{position:absolute;z-index:999;}
+#loadImg div{display:table-cell;width:200px;height:200px;background:#fff;text-align:center;vertical-align:middle;}

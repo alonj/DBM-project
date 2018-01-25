@@ -23,8 +23,9 @@ $_SESSION["c"] = array("Database" => "dbstudents", "UID" => "dbstudents", "PWD" 
       </ul>
   </div>
   <div class="middle">
-    <iframe name="center_frame" src = "homepage.php" width="100%" height="100%" scrolling=
-        <?php if(basename($_SERVER['PHP_SELF'])!="homepage.php"){echo "no";} ?>></iframe>
+      <div id="loadImg"><div><img src="35.gif" /></div></div>
+      <iframe name="center_frame" src = "homepage.php" width="100%" height="100%" scrolling=
+        <?php if(basename($_SERVER['PHP_SELF'])!="homepage.php"){echo "no";} ?> onload="document.getElementById('loadImg').style.display='none';"></iframe>
   </div>
   </body>
 </html>

@@ -31,7 +31,7 @@ session_start();
 
         function drawChart() {
             var data = google.visualization.arrayToDataTable([
-                ['Month', 'Day', 'Use Count'],
+                ['Month', 'Use Count'],
                 <?php while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
                 {
                     echo "['". $row['month']."', ". $row['avg'] ."], ";
