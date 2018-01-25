@@ -65,7 +65,8 @@ if (isset($_POST["submit"])) {
     }
 }
 ?>
-<div id="googleMap" style="width:100%;height:400px;"></div>
+<div id="loadImg"><div><img src="resources/4.gif" /></div></div>
+<div id="googleMap" style="width:100%;height:400px;" onload="document.getElementById('loadImg').style.display='none';"></div>
 <script>
     function myMap() {
         var lat = <?php echo json_encode($latitude); ?>;
