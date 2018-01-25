@@ -6,7 +6,7 @@
 </head>
 <body>
 <!--<link rel="stylesheet" href='styles.css' type="text/css">-->
-<!--<form action="<?php /*echo $_SERVER['PHP_SELF'];*/?>" method="post" style="width: 100%; background-color: white; float: left; min-height: 100%">
+<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" style="width: 100%; background-color: white; float: left; min-height: 100%">
     <div style="float: left; padding-left: 20%; padding-top: 5%; font-family: Calibri">
         Hour:<br>
         <input type="number" title="hour" name="hour" min="1" max="24" required autofocus><br><br>
@@ -23,7 +23,7 @@
         <input type="reset" value="Reset form"><br><br>
         <div style="clear:both"></div>
     </div>
-</form>-->
+</form>
 
 <?php
 $latitude = 40.7128;
@@ -79,13 +79,13 @@ if (isset($_POST["submit"])) {
             zoom:9,
         };
         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-        var perimeter = new google.maps.Circle({center: position,
+        /*var perimeter = new google.maps.Circle({center: position,
             radius: rad,
             strokeColor: color,
             strokeOpacity: 0.5,
             strokeWeight: 2,
             fillColor: color,
-            fillOpacity: 0.2});
+            fillOpacity: 0.2});*/
         perimeter.setMap(map);
         map.fitBounds(perimeter.getBounds());
         document.getElementById('map_div').scrollIntoView();
