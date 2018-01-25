@@ -62,6 +62,7 @@ session_start();
                         font-size: 16px;
                         color: #0B5584;
                         font-family: 'D Sari Bold', Calibri, sans-serif;
-                        text-align: center;"> Note, the data will become more significant as it grows.</p><br>
+                        text-align: center;"> Note, the data will become more significant as it grows. <br> Currently, the data
+                        is missing several months, as well as 2014 being a significant growth year for Uber - thus not representative of month-on-month change.</p><br>
 </body>
 </html>
