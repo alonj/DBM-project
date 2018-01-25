@@ -56,7 +56,8 @@ if (isset($_POST["submit"])) {
                             cos(radians(". $latitude ."))*
                             power((sin(radians((". $longitude ."-location_long)/2))),2))) < ". $radius_km .")";
     $result = sqlsrv_query($conn, $sql);
-    $heat = $result["heat"];
+    $row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
+    $heat = $row['heat'];
     echo '<script language = "javascript">';
     echo $heat;
     echo '</script>';
