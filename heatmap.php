@@ -109,8 +109,8 @@ if (isset($_POST["submit"])) {
             fillColor: color,
             fillOpacity: 0.2});
         perimeter.setMap(map);
-        map.fitBounds(perimeter.getBounds());
-        document.getElementById('map_div').scrollIntoView();
+        /*map.fitBounds(perimeter.getBounds());*/
+        /*document.getElementById('map_div').scrollIntoView();*/
     }
 </script>
 
