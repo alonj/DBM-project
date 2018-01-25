@@ -48,7 +48,7 @@ if (isset($_POST["submit"])) {
        $result = sqlsrv_query($conn, $check_unique);*/
 //    if(sqlsrv_num_rows($result) == 0) { //Insert form data into "Driver" table if dID does not already exist
         $insert = "INSERT INTO driver(driver_id,  name,  date_of_birth,  address,  hobby)
-                        VALUES( " . $dID . ",  
+                        VALUES('" . $dID . " ',  
                                '" . $name . "',
                                '" . $d_birth . "',
                                '" . $address . "',
