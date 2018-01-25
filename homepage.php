@@ -51,8 +51,16 @@ session_start();
     </script>
 </head>
 <body>
-<p class="quote"> Below, tracking the average hourly usage, per month, over time.</p><br>
+<p class="quote" style="font-weight: bold;
+                        font-size: 16px;
+                        color: whitesmoke;
+                        font-family: "D Sari Bold", Calibri, sans-serif;
+                        text-align: center;"> Below, tracking the average hourly usage, per month, over time.</p><br>
 <div id="curve_chart" style="width: 900px; height: 500px"></div>
-<p class="quote"> Note, the data will become more significant as it grows.</p><br>
+<p class="quote" style="font-weight: bold;
+                        font-size: 16px;
+                        color: whitesmoke;
+                        font-family: "D Sari Bold", Calibri, sans-serif;
+                        text-align: center;"> Note, the data will become more significant as it grows.</p><br>
 </body>
 </html>

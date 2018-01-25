@@ -63,11 +63,10 @@ if (isset($_POST["submit"])) {
     elseif ($heat > 50){
         $color = "#d65562";
     }
-    echo "<div id='loadImg'><div><img src='resources/4.gif' /></div></div>";
 }
 ?>
 
-<div id="googleMap" style="width:100%;height:400px;" onload="document.getElementById('loadImg').style.display='none';"></div>
+<div id="googleMap" style="width:100%;height:400px;"></div>
 <script>
     function myMap() {
         var lat = <?php echo json_encode($latitude); ?>;
@@ -94,7 +93,10 @@ if (isset($_POST["submit"])) {
 </script>
 <?php
 if (isset($_POST["submit"])) {
+    echo "<div id='loadImg'><div><img src='resources/4.gif' /></div></div>";
+    echo "<div onload='document.getElementById('loadImg').style.display='none';'>";
     echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';
+    echo "</div>";
 }
 ?>
 </body>
