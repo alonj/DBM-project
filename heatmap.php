@@ -16,7 +16,7 @@
         Longitude:
         <input type="number" step="any" title="longitude" name="longitude" max="180" min="-180" required><br><br>
         Radius (Kilometres):<br>
-        <input type="number" title="radius" name="radius" maxlength="500" required><br><br>
+        <input type="number" step="any" title="radius" name="radius" maxlength="500" required><br><br>
     </div>
     <div style="clear:both"></div>
     <div style="padding-left: 40%; padding-top: 5%">
@@ -75,41 +75,39 @@ if (isset($_POST["submit"])) {
     echo '</script>';
 
 ?>
-
-
+<div>
     <div id="googleMap">
-        <script>
-            function myMap() {
-                var qLat =  <?php echo json_encode($latitude,JSON_NUMERIC_CHECK); ?>;
-                var qLng = <?php echo json_encode($longitude,JSON_NUMERIC_CHECK); ?>;
-                var qRadius = <?php echo json_encode($radius_km,JSON_NUMERIC_CHECK); ?>;
-                var qColor = <?php echo json_encode($color); ?>;
-                var qPos = new google.maps.LatLng(qLat, qLng);
-                var mapProp = {
-                    center: qPos,
-                    zoom: 10
-                };
-                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-                var qCircle = new google.maps.Circle({
-                    center: qPos,
-                    radius: qRadius,
-                    strokeColor: qColor,
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    fillColor: qColor,
-                    fillOpacity: 0.4
-                });
-                qCircle.setMap(map);
-                map.fitBounds(qCircle.getBounds());//fits the maps bounds to circle
-                document.getElementById('googleMap').scrollIntoView();
-            }
-        </script>
+    <script>
+        function myMap() {
+            var qLat =  <?php echo json_encode($latitude,JSON_NUMERIC_CHECK); ?>;
+            var qLng = <?php echo json_encode($longitude,JSON_NUMERIC_CHECK); ?>;
+            var qRadius = <?php echo json_encode($radius_km,JSON_NUMERIC_CHECK); ?>;
+            var qColor = <?php echo json_encode($color); ?>;
+            var qPos = new google.maps.LatLng(qLat, qLng);
+            var mapProp = {
+                center: qPos,
+                zoom: 10
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            var qCircle = new google.maps.Circle({
+                center: qPos,
+                radius: qRadius,
+                strokeColor: qColor,
+                strokeOpacity: 0.8,
+                strokeWeight: 2,
+                fillColor: qColor,
+                fillOpacity: 0.4
+            });
+            qCircle.setMap(map);
+            map.fitBounds(qCircle.getBounds());//fits the maps bounds to circle
+            document.getElementById('googleMap').scrollIntoView();
+        }
+    </script>
     </div>
     <?php
-    echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';
-}
-?>
-
+    echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';}
+    ?>
+</div>
 
 <!--<div id="map_div">
     <script>
