@@ -65,10 +65,10 @@ if (isset($_POST["submit"])) {
 <div id="map">
     <script>
         function myMap() {
-            var lat = $latitude;
-            var lon = $longitude;
-            var rad = $radius;
-            var color = "#ff8785";
+            var lat = <?php echo json_encode($latitude); ?>;
+            var lon = <?php echo json_encode($longitude); ?>;
+            var rad = <?php echo json_encode($radius_km); ?>;
+            var color =<?php echo json_encode("#ff948e"); ?>;
             var position = new google.maps.LatLng(lat, lon);
             var mapProp = {
                 center:position,
