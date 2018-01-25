@@ -36,7 +36,7 @@ if (isset($_POST["submit"])){
     elseif (($handle = fopen($file, "r")) !== FALSE) {
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
             $sql="INSERT INTO dbstudents.dbo.small_drive(car_id, location_lat, location_long, Ctime) 
-            VALUES  ('".addslashes($data[0])."',
+            VALUES  ('".addslashes($data[4])."',
                      '".addslashes($data[2])."',
                      '".addslashes($data[3])."',
                      '".addslashes($data[1])."');";

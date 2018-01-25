@@ -14,7 +14,7 @@
         <input type="number" step="any" title="latitude" name="latitude" max="90" min="-90" required>
         Longitude:
         <input type="number" step="any" title="longitude" name="longitude" max="180" min="-180" required><br><br>
-        Radius (Kilometres):<br>
+        Radius (Metres):<br>
         <input type="number" step="any" title="radius" name="radius" maxlength="500" required><br><br>
     </div>
     <div style="clear:both"></div>
@@ -52,12 +52,15 @@ if (isset($_POST["submit"])) {
                                 ),2)+
                             cos(radians(location_lat))*
                             cos(radians(". $latitude ."))*
-                            power((sin(radians((". $longitude ."-location_long)/2))),2))) < ". $radius_km ."))";
+                            power((sin(radians((". $longitude ."-location_long)/2))),2))) <= ". $radius_km/1000 ."))";
     $result = sqlsrv_query($conn, $sql);
     $row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
     $heat = $row['heat'];
-    $color = "#7a97ff";
-    if($heat <= 50 and $heat > 20){
+    $color = "#d4d2d1";
+    if($heat <= 20){
+        $color = "#7a97ff";
+    }
+    else if($heat <= 50 and $heat > 20){
         $color = "#d477cf";
     }
     elseif ($heat > 50){
@@ -80,7 +83,7 @@ if (isset($_POST["submit"])) {
         };
         var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
         var perimeter = new google.maps.Circle({center: position,
-            radius: rad*1000,
+            radius: rad,
             strokeColor: color,
             strokeOpacity: 0.5,
             strokeWeight: 2,
