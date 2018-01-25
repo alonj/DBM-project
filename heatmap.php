@@ -6,7 +6,7 @@
 </head>
 <body>
 <!--<link rel="stylesheet" href='styles.css' type="text/css">-->
-<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post" style="width: 100%; background-color: white; float: left; min-height: 100%">
+<!--<form action="<?php /*echo $_SERVER['PHP_SELF'];*/?>" method="post" style="width: 100%; background-color: white; float: left; min-height: 100%">
     <div style="float: left; padding-left: 20%; padding-top: 5%; font-family: Calibri">
         Hour:<br>
         <input type="number" title="hour" name="hour" min="1" max="24" required autofocus><br><br>
@@ -23,7 +23,7 @@
         <input type="reset" value="Reset form"><br><br>
         <div style="clear:both"></div>
     </div>
-</form>
+</form>-->
 
 <?php
 $latitude = 40.7128;
