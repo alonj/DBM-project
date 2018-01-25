@@ -50,20 +50,13 @@ if (isset($_POST["submit"])){
         echo '</script>';
         die(print_r(sqlsrv_errors(), true));
     }
-    if($conn === false)
-    {
-        echo '<script language = "javascript">';
-        echo 'alert("Connection to database failed!")';
-        echo '</script>';
-        die(print_r(sqlsrv_errors(), true));
-    }
     $sql = "INSERT INTO driver(driver_id, name, date_of_birth, address, hobby) 
         VALUES ('" . addslashes($_POST['driver_id']) . "',
                 '" . addslashes($_POST['name']) . "',
                 '" . addslashes($_POST['birthday']) . "',
                 '" . addslashes($_POST['address']) . "',
                 '" . addslashes($_POST['hobby']) . "');";
-    $result = sqlsrv_query($_SESSION["conn"], $sql);
+    $result = sqlsrv_query($conn, $sql);
     if($result === false){
         echo '<script language = "javascript">';
         echo 'alert("Submission failed")';
