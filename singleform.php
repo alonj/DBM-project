@@ -26,21 +26,10 @@ session_start();
         <input type="submit" name="submit" value="Submit">
         <input type="reset" value="Reset form"><br><br>
         <div style="clear:both"></div>
-        </div></p>
+        </div>
 </form>
 <?php
 if (isset($_POST["submit"])){
-/*    $server = "tcp:techniondbcourse01.database.windows.net,1433";
-    $c = array("Database" => "dbstudents", "UID" => "dbstudents", "PWD" => "Qwerty12!");
-    sqlsrv_configure('WarningsReturnAsErrors', 0);
-    $conn = sqlsrv_connect($server, $c);
-    if($conn === false)
-    {
-        echo '<script language = "javascript">';
-        echo 'alert("Connection to database failed!")';
-        echo '</script>';
-        die(print_r(sqlsrv_errors(), true));
-    }*/
     sqlsrv_configure('WarningsReturnAsErrors', 0);
     $conn = sqlsrv_connect($_SESSION["server"], $_SESSION["c"]);
     if($conn === false)

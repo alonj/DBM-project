@@ -1,14 +1,15 @@
+<?php
+session_start();
+?>
+
 <html>
 <head>
     <meta charset="utf-8" />
 </head>
 <body>
-<link rel="stylesheet" href='styles.css' type="text/css">
     <?php
-        $server = "tcp:techniondbcourse01.database.windows.net,1433";
-        $c = array("Database" => "dbstudents", "UID" => "dbstudents", "PWD" => "Qwerty12!");
         sqlsrv_configure('WarningsReturnAsErrors', 0);
-        $conn = sqlsrv_connect($server, $c);
+        $conn = sqlsrv_connect($_SESSION["server"], $_SESSION["c"]);
         if($conn === false)
         {
             echo '<script language = "javascript">';
@@ -16,28 +17,25 @@
             echo '</script>';
             die(print_r(sqlsrv_errors(), true));
         }
-        $sql = "SELECT car_id, Ctime
-              FROM small_drive
-              ";
+        $sql = "SELECT driver_id, hobby
+                FROM driver";
         $result = sqlsrv_query($conn, $sql);
         if( $result === false) {
             die( print_r( sqlsrv_errors(), true) );
         }
-        $row_count = sqlsrv_num_rows($result);
-        echo "number of rows:" . $row_count . "<br>";
-        /*echo "<br><br>";
+        echo "<br><br>";
         echo "<table style='font-family: Calibri'>";
         echo "<tr>";
         echo "<th>Car ID</th>";
         echo "<th>Time recorded</th>";
-        echo "</tr>";*/
+        echo "</tr>";
         while($row = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC))
         {
-/*          echo "<tr>";
-          echo "<td>" . $row['car_id']        ."</td>";
-          echo "<td>" . $row['Ctime']       ."</td>";
-          echo"</tr>";*/
-            echo "car ID: " . $row["car_id"] . " - time: " . $row["Ctime"] . "<br>";        }
+          echo "<tr>";
+          echo "<td>" . $row['driver_id']        ."</td>";
+          echo "<td>" . $row['hobby']            ."</td>";
+          echo"</tr>";
+        }
         echo "</table>";
     ?>
 </body>
