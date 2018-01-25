@@ -19,7 +19,7 @@
     </div>
     <div style="clear:both"></div>
     <div style="padding-left: 40%; padding-top: 5%">
-        <input type="submit" name="submit" value="Submit" onclick="">
+        <input type="submit" name="submit" value="Submit">
         <input type="reset" value="Reset form"><br><br>
         <div style="clear:both"></div>
     </div>
