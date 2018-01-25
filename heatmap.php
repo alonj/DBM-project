@@ -63,9 +63,8 @@ if (isset($_POST["submit"])) {
     elseif ($heat > 50){
         $color = "#d65562";
     }
+}
 ?>
---><?php /*echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';*/?>
-
 <div id="googleMap" style="width:100%;height:400px;"></div>
 <script>
     function myMap() {
@@ -91,6 +90,10 @@ if (isset($_POST["submit"])) {
         document.getElementById('map_div').scrollIntoView();
     }
 </script>
-<?php echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';} ?>
+<?php
+if (isset($_POST["submit"])) {
+    echo '<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_ml_vTDIuJm62aNLcPfmXgbOhTxGb7KE&callback=myMap"></script>';
+}
+?>
 </body>
 </html>
