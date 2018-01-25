@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>TED Stats - Add lectures from file</title>
+    <title>New York - Public Transportation</title>
 </head>
 <body style="background-color: white">
 <link href="styles.css" rel="stylesheet" type="text/css">
